@@ -1,4 +1,4 @@
-namespace Bi
+namespace Client
 {
     public class Program
     {
