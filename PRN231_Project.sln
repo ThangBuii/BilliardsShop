@@ -5,14 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "PRN231_Project\API.csproj", "{811FE407-3821-4229-9CD2-4A88FB19D71E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8F746B87-EC06-4F50-AADA-1786770BCD2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8F746B87-EC06-4F50-AADA-1786770BCD2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{1408A40C-3582-4A73-A2B9-616C4D3E5D97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{1408A40C-3582-4A73-A2B9-616C4D3E5D97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share", "Share\Share.csproj", "{1C672150-E122-4F02-9F1F-7718E75E7769}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRN231_Project", "PRN231_Project\PRN231_Project.csproj", "{811FE407-3821-4229-9CD2-4A88FB19D71E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Share", "Share\Share.csproj", "{1C672150-E122-4F02-9F1F-7718E75E7769}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bi", "Bi\Bi.csproj", "{C0BFEB95-0FF4-4693-9596-1AE8AC7DA466}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Bi\Client.csproj", "{C0BFEB95-0FF4-4693-9596-1AE8AC7DA466}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

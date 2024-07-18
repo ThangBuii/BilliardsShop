@@ -6,13 +6,13 @@ using Share.Models;
 
 namespace DataLayer
 {
-    public partial class PRN231_PROJECT_1Context : DbContext
+    public partial class PRN231_PROJECT_2Context : DbContext
     {
-        public PRN231_PROJECT_1Context()
+        public PRN231_PROJECT_2Context()
         {
         }
 
-        public PRN231_PROJECT_1Context(DbContextOptions<PRN231_PROJECT_1Context> options)
+        public PRN231_PROJECT_2Context(DbContextOptions<PRN231_PROJECT_2Context> options)
             : base(options)
         {
         }
@@ -31,7 +31,7 @@ namespace DataLayer
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server =(local); database = PRN231_PROJECT_1;uid=sa;pwd=1234;");
+                optionsBuilder.UseSqlServer("server =(local); database = PRN231_PROJECT_2;uid=sa;pwd=1234;");
             }
         }
 
@@ -41,8 +41,6 @@ namespace DataLayer
             {
                 entity.ToTable("Brand");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name).HasMaxLength(255);
             });
 
@@ -50,16 +48,12 @@ namespace DataLayer
             {
                 entity.ToTable("Category");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name).HasMaxLength(255);
             });
 
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.ToTable("Order");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
@@ -75,8 +69,6 @@ namespace DataLayer
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.ToTable("OrderDetail");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderDetails)
@@ -95,8 +87,6 @@ namespace DataLayer
             {
                 entity.ToTable("Product");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Brand)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.BrandId)
@@ -113,7 +103,7 @@ namespace DataLayer
             modelBuilder.Entity<ProductDetail>(entity =>
             {
                 entity.HasKey(e => e.ProductId)
-                    .HasName("productdetail_productid_primary");
+                    .HasName("PK__ProductD__B40CC6CD1061AA18");
 
                 entity.ToTable("ProductDetail");
 
@@ -138,8 +128,6 @@ namespace DataLayer
             {
                 entity.ToTable("ProductImage");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Source).HasMaxLength(255);
 
                 entity.HasOne(d => d.Product)
@@ -152,8 +140,6 @@ namespace DataLayer
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Account)
                     .HasMaxLength(255)
