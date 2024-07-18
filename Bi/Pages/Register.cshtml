@@ -1,0 +1,58 @@
+﻿@page
+@model Client.Pages.RegisterModel
+@{
+}
+
+<body>
+
+    <section class="login_part padding_top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="register_part_text text-center">
+                        <div class="register_part_text_iner">
+                            <img src="img/BilliardRegister.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h2>
+                                REGISTER
+                            </h2>
+                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" id="username" name="username" value=""
+                                           placeholder="Email">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" id="name" name="name" value=""
+                                           placeholder="Name">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                           placeholder="Password">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="rePassword" name="rePassword" value=""
+                                           placeholder="Re-Password">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="creat_account d-flex align-items-center">
+                                        <label>Already have an account? <a href="Login">Login now</a></label>
+                                    </div>
+                                    <button type="submit" value="submit" class="btn_3">
+                                        Register
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
