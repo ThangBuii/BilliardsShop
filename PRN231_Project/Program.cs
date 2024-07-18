@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PRN231_Project.Models;
+
 namespace PRN231_Project
 {
     public class Program
@@ -9,9 +12,13 @@ namespace PRN231_Project
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<PRN231_Billiard_ShopContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
             var app = builder.Build();
 
