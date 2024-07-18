@@ -18,7 +18,7 @@ public static class DataLayerRegister
     public static IServiceCollection AddServicesDbcontext(this IServiceCollection services, IConfiguration configration)
     {
         string beerManagementConfiguration = configration.GetConnectionString("MyDatabase");
-        services.AddDbContext<PRN231_PROJECT_1Context>(
+        services.AddDbContext<PRN231_PROJECT_2Context>(
             opt => opt.UseSqlServer(beerManagementConfiguration));
 
         return services;
