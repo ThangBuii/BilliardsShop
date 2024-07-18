@@ -32,11 +32,11 @@ input:focus {
         padding: 70px 0px;
     }
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         padding: 70px 0px;
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
         padding: 70px 0px;
     }
 }
@@ -52,11 +52,11 @@ input:focus {
         padding-top: 70px !important;
     }
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         padding-top: 70px !important;
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
         padding-top: 100px !important;
     }
 }
@@ -72,11 +72,11 @@ input:focus {
         padding-top: 70px;
     }
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         padding-top: 70px;
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
         padding-top: 70px;
     }
 }
@@ -118,13 +118,13 @@ h2 {
     font-weight: 600;
     line-height: 1.222;
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         font-size: 22px;
         line-height: 25px;
 
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
         font-size: 24px;
         line-height: 25px;
 
@@ -135,7 +135,7 @@ h3 {
     font-size: 24px;
     line-height: 25px;
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         font-size: 20px;
 
     }
@@ -179,14 +179,14 @@ button:focus,
         position: relative;
         margin-bottom: 28px;
 
-        @media #{$small_mobile} {
+        @media #{$small_moClientle} {
             font-size: 25px;
             line-height: 35px;
             margin-bottom: 15px;
 
         }
 
-        @media #{$large_mobile} {
+        @media #{$large_moClientle} {
             font-size: 25px;
             line-height: 35px;
             margin-bottom: 15px;
@@ -210,11 +210,11 @@ button:focus,
         line-height: 30px;
         font-family: $font_stack_2;
 
-        @media #{$small_mobile} {
+        @media #{$small_moClientle} {
             margin-bottom: 10px;
         }
 
-        @media #{$large_mobile} {
+        @media #{$large_moClientle} {
             margin-bottom: 10px;
         }
 
@@ -237,7 +237,7 @@ ul {
 .mb_110 {
     margin-bottom: 110px;
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         margin-bottom: 220px;
     }
 
@@ -246,11 +246,11 @@ ul {
 .mt_130 {
     margin-top: 130px;
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         margin-top: 70px;
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
         margin-top: 70px;
     }
 
@@ -284,7 +284,7 @@ ul {
     position: relative;
 }
 
-@media #{$extra_big_screen} {
+@media #{$extra_Clientg_screen} {
     .container {
         max-width: 1170px;
     }

@@ -149,7 +149,7 @@
       return false;
     }
 
-    return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
+    return getComputedStyle(element).getPropertyValue('visiClientlity') === 'visible';
   };
 
   const isDisabled = element => {
@@ -1053,7 +1053,7 @@
     },
 
     focusableChildren(element) {
-      const focusables = ['a', 'button', 'input', 'textarea', 'select', 'details', '[tabindex]', '[contenteditable="true"]'].map(selector => `${selector}:not([tabindex^="-"])`).join(', ');
+      const focusables = ['a', 'button', 'input', 'textarea', 'select', 'details', '[taClientndex]', '[contenteditable="true"]'].map(selector => `${selector}:not([taClientndex^="-"])`).join(', ');
       return this.find(focusables, element).filter(el => !isDisabled(el) && isVisible(el));
     }
 
@@ -1214,7 +1214,7 @@
       if (this._config && this._config.interval && !this._isPaused) {
         this._updateInterval();
 
-        this._interval = setInterval((document.visibilityState ? this.nextWhenVisible : this.next).bind(this), this._config.interval);
+        this._interval = setInterval((document.visiClientlityState ? this.nextWhenVisible : this.next).Clientnd(this), this._config.interval);
       }
     }
 
@@ -1308,11 +1308,11 @@
 
         if (this._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
-          // part of the mouse compatibility events on first tap - the carousel
+          // part of the mouse compatiClientlity events on first tap - the carousel
           // would stop cycling until user tapped out of it;
           // here, we listen for touchend, explicitly pause the carousel
           // (as if it's the second time we tap on it, mouseenter compat event
-          // is NOT fired) and after a timeout (to allow for mouse compatibility
+          // is NOT fired) and after a timeout (to allow for mouse compatiClientlity
           // events to fire) we explicitly restart cycling
           this.pause();
 
@@ -2605,7 +2605,7 @@
       // In Chrome, it returns a value very close to 0 (+/-) but contains rounding
       // errors due to floating point numbers, so we need to check precision.
       // Safari returns a number <= 0, usually < -1 when pinch-zoomed
-      // Feature detection fails in mobile emulation mode in Chrome.
+      // Feature detection fails in moClientle emulation mode in Chrome.
       // Math.abs(win.innerWidth / visualViewport.scale - visualViewport.width) <
       // 0.001
       // Fallback here: "Not Safari" userAgent
@@ -3543,7 +3543,7 @@
           state.rects = {
             reference: getCompositeRect(reference, getOffsetParent(popper), state.options.strategy === 'fixed'),
             popper: getLayoutRect(popper)
-          }; // Modifiers have the ability to reset the current update cycle. The
+          }; // Modifiers have the aClientlity to reset the current update cycle. The
           // most common use case for this is the `flip` modifier changing the
           // placement, which then needs to re-run all the modifiers, because the
           // logic was previously ran for the previous placement and is therefore
@@ -3606,7 +3606,7 @@
         if (!isDestroyed && options.onFirstUpdate) {
           options.onFirstUpdate(state);
         }
-      }); // Modifiers have the ability to execute arbitrary code before the first
+      }); // Modifiers have the aClientlity to execute arClienttrary code before the first
       // update cycle runs. They will be executed in the same order as the update
       // cycle. This is useful when a modifier adds some persistent data that
       // other modifiers need to use, but the modifier is run after the dependent
@@ -4995,7 +4995,7 @@
       }
 
       this._isShown = true;
-      this._element.style.visibility = 'visible';
+      this._element.style.visiClientlity = 'visible';
 
       this._backdrop.show();
 
@@ -5052,7 +5052,7 @@
 
         this._element.removeAttribute('role');
 
-        this._element.style.visibility = 'hidden';
+        this._element.style.visiClientlity = 'hidden';
 
         if (!this._config.scroll) {
           new ScrollBarHelper().reset();
@@ -6547,7 +6547,7 @@
   const EVENT_SHOW = `show${EVENT_KEY}`;
   const EVENT_SHOWN = `shown${EVENT_KEY}`;
   const CLASS_NAME_FADE = 'fade';
-  const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatibility
+  const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatiClientlity
 
   const CLASS_NAME_SHOW = 'show';
   const CLASS_NAME_SHOWING = 'showing';

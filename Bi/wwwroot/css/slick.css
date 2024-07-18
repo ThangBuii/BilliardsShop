@@ -71,7 +71,7 @@
 }
 .slick-loading .slick-track
 {
-    visibility: hidden;
+    visiClientlity: hidden;
 }
 
 .slick-slide
@@ -104,7 +104,7 @@
 }
 .slick-loading .slick-slide
 {
-    visibility: hidden;
+    visiClientlity: hidden;
 }
 .slick-vertical .slick-slide
 {

@@ -43,8 +43,8 @@
         }
         return false;
     } ());
-    if (!Function.prototype.bind) {
-        Function.prototype.bind = function bind(that) {
+    if (!Function.prototype.Clientnd) {
+        Function.prototype.Clientnd = function Clientnd(that) {
 
             var target = this;
             var slice = [].slice;
@@ -121,7 +121,7 @@
 
     var base_html =
         '<span class="irs">' +
-        '<span class="irs-line" tabindex="-1"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span>' +
+        '<span class="irs-line" taClientndex="-1"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span>' +
         '<span class="irs-min">0</span><span class="irs-max">1</span>' +
         '<span class="irs-from">0</span><span class="irs-to">0</span><span class="irs-single">0</span>' +
         '</span>' +
@@ -233,11 +233,11 @@
 
             // grid
             grid_gap: 0,
-            big_num: 0,
-            big: [],
-            big_w: [],
-            big_p: [],
-            big_x: []
+            Clientg_num: 0,
+            Clientg: [],
+            Clientg_w: [],
+            Clientg_p: [],
+            Clientg_x: []
         };
 
         // storage for labels measure variables
@@ -518,8 +518,8 @@
                 this.$cache.cont.append(single_html);
                 this.$cache.edge = this.$cache.cont.find(".irs-bar-edge");
                 this.$cache.s_single = this.$cache.cont.find(".single");
-                this.$cache.from[0].style.visibility = "hidden";
-                this.$cache.to[0].style.visibility = "hidden";
+                this.$cache.from[0].style.visiClientlity = "hidden";
+                this.$cache.to[0].style.visiClientlity = "hidden";
                 this.$cache.shad_single = this.$cache.cont.find(".shadow-single");
             } else {
                 this.$cache.cont.append(double_html);
@@ -545,7 +545,7 @@
             } else {
                 this.$cache.cont.removeClass("irs-disabled");
                 this.$cache.input[0].disabled = false;
-                this.bindEvents();
+                this.ClientndEvents();
             }
 
             if (this.options.drag_interval) {
@@ -613,7 +613,7 @@
 
         /**
          * Remove slider instance
-         * and ubind all events
+         * and uClientnd all events
          */
         remove: function () {
             this.$cache.cont.remove();
@@ -633,74 +633,74 @@
             }
 
             this.$cache.grid_labels = [];
-            this.coords.big = [];
-            this.coords.big_w = [];
-            this.coords.big_p = [];
-            this.coords.big_x = [];
+            this.coords.Clientg = [];
+            this.coords.Clientg_w = [];
+            this.coords.Clientg_p = [];
+            this.coords.Clientg_x = [];
 
             cancelAnimationFrame(this.raf_id);
         },
 
         /**
-         * bind all slider events
+         * Clientnd all slider events
          */
-        bindEvents: function () {
+        ClientndEvents: function () {
             if (this.no_diapason) {
                 return;
             }
 
-            this.$cache.body.on("touchmove.irs_" + this.plugin_count, this.pointerMove.bind(this));
-            this.$cache.body.on("mousemove.irs_" + this.plugin_count, this.pointerMove.bind(this));
+            this.$cache.body.on("touchmove.irs_" + this.plugin_count, this.pointerMove.Clientnd(this));
+            this.$cache.body.on("mousemove.irs_" + this.plugin_count, this.pointerMove.Clientnd(this));
 
-            this.$cache.win.on("touchend.irs_" + this.plugin_count, this.pointerUp.bind(this));
-            this.$cache.win.on("mouseup.irs_" + this.plugin_count, this.pointerUp.bind(this));
+            this.$cache.win.on("touchend.irs_" + this.plugin_count, this.pointerUp.Clientnd(this));
+            this.$cache.win.on("mouseup.irs_" + this.plugin_count, this.pointerUp.Clientnd(this));
 
-            this.$cache.line.on("touchstart.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
-            this.$cache.line.on("mousedown.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
+            this.$cache.line.on("touchstart.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
+            this.$cache.line.on("mousedown.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
 
             if (this.options.drag_interval && this.options.type === "double") {
-                this.$cache.bar.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "both"));
-                this.$cache.bar.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "both"));
+                this.$cache.bar.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "both"));
+                this.$cache.bar.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "both"));
             } else {
-                this.$cache.bar.on("touchstart.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
-                this.$cache.bar.on("mousedown.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
+                this.$cache.bar.on("touchstart.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
+                this.$cache.bar.on("mousedown.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
             }
 
             if (this.options.type === "single") {
-                this.$cache.single.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "single"));
-                this.$cache.s_single.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "single"));
-                this.$cache.shad_single.on("touchstart.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
+                this.$cache.single.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "single"));
+                this.$cache.s_single.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "single"));
+                this.$cache.shad_single.on("touchstart.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
 
-                this.$cache.single.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "single"));
-                this.$cache.s_single.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "single"));
-                this.$cache.edge.on("mousedown.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
-                this.$cache.shad_single.on("mousedown.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
+                this.$cache.single.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "single"));
+                this.$cache.s_single.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "single"));
+                this.$cache.edge.on("mousedown.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
+                this.$cache.shad_single.on("mousedown.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
             } else {
-                this.$cache.single.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, null));
-                this.$cache.single.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, null));
+                this.$cache.single.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, null));
+                this.$cache.single.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, null));
 
-                this.$cache.from.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "from"));
-                this.$cache.s_from.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "from"));
-                this.$cache.to.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "to"));
-                this.$cache.s_to.on("touchstart.irs_" + this.plugin_count, this.pointerDown.bind(this, "to"));
-                this.$cache.shad_from.on("touchstart.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
-                this.$cache.shad_to.on("touchstart.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
+                this.$cache.from.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "from"));
+                this.$cache.s_from.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "from"));
+                this.$cache.to.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "to"));
+                this.$cache.s_to.on("touchstart.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "to"));
+                this.$cache.shad_from.on("touchstart.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
+                this.$cache.shad_to.on("touchstart.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
 
-                this.$cache.from.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "from"));
-                this.$cache.s_from.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "from"));
-                this.$cache.to.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "to"));
-                this.$cache.s_to.on("mousedown.irs_" + this.plugin_count, this.pointerDown.bind(this, "to"));
-                this.$cache.shad_from.on("mousedown.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
-                this.$cache.shad_to.on("mousedown.irs_" + this.plugin_count, this.pointerClick.bind(this, "click"));
+                this.$cache.from.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "from"));
+                this.$cache.s_from.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "from"));
+                this.$cache.to.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "to"));
+                this.$cache.s_to.on("mousedown.irs_" + this.plugin_count, this.pointerDown.Clientnd(this, "to"));
+                this.$cache.shad_from.on("mousedown.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
+                this.$cache.shad_to.on("mousedown.irs_" + this.plugin_count, this.pointerClick.Clientnd(this, "click"));
             }
 
             if (this.options.keyboard) {
-                this.$cache.line.on("keydown.irs_" + this.plugin_count, this.key.bind(this, "keyboard"));
+                this.$cache.line.on("keydown.irs_" + this.plugin_count, this.key.Clientnd(this, "keyboard"));
             }
 
             if (is_old_ie) {
-                this.$cache.body.on("mouseup.irs_" + this.plugin_count, this.pointerUp.bind(this));
-                this.$cache.body.on("mouseleave.irs_" + this.plugin_count, this.pointerUp.bind(this));
+                this.$cache.body.on("mouseup.irs_" + this.plugin_count, this.pointerUp.Clientnd(this));
+                this.$cache.body.on("mouseleave.irs_" + this.plugin_count, this.pointerUp.Clientnd(this));
             }
         },
 
@@ -881,7 +881,7 @@
         },
 
         /**
-         * Set visibility and content
+         * Set visiClientlity and content
          * of Min and Max labels
          */
         setMinMax: function () {
@@ -1280,9 +1280,9 @@
             this.drawHandles();
 
             if (this.is_active) {
-                this.raf_id = requestAnimationFrame(this.updateScene.bind(this));
+                this.raf_id = requestAnimationFrame(this.updateScene.Clientnd(this));
             } else {
-                this.update_tm = setTimeout(this.updateScene.bind(this), 300);
+                this.update_tm = setTimeout(this.updateScene.Clientnd(this), 300);
             }
         },
 
@@ -1411,15 +1411,15 @@
                 this.calcLabels();
 
                 if (this.labels.p_single_left < this.labels.p_min + 1) {
-                    this.$cache.min[0].style.visibility = "hidden";
+                    this.$cache.min[0].style.visiClientlity = "hidden";
                 } else {
-                    this.$cache.min[0].style.visibility = "visible";
+                    this.$cache.min[0].style.visiClientlity = "visible";
                 }
 
                 if (this.labels.p_single_left + this.labels.p_single_fake > 100 - this.labels.p_max - 1) {
-                    this.$cache.max[0].style.visibility = "hidden";
+                    this.$cache.max[0].style.visiClientlity = "hidden";
                 } else {
-                    this.$cache.max[0].style.visibility = "visible";
+                    this.$cache.max[0].style.visiClientlity = "visible";
                 }
 
             } else {
@@ -1466,42 +1466,42 @@
                     max = Math.max(single_left, to_left);
 
                 if (this.labels.p_from_left + this.labels.p_from_fake >= this.labels.p_to_left) {
-                    this.$cache.from[0].style.visibility = "hidden";
-                    this.$cache.to[0].style.visibility = "hidden";
-                    this.$cache.single[0].style.visibility = "visible";
+                    this.$cache.from[0].style.visiClientlity = "hidden";
+                    this.$cache.to[0].style.visiClientlity = "hidden";
+                    this.$cache.single[0].style.visiClientlity = "visible";
 
                     if (this.result.from === this.result.to) {
                         if (this.target === "from") {
-                            this.$cache.from[0].style.visibility = "visible";
+                            this.$cache.from[0].style.visiClientlity = "visible";
                         } else if (this.target === "to") {
-                            this.$cache.to[0].style.visibility = "visible";
+                            this.$cache.to[0].style.visiClientlity = "visible";
                         } else if (!this.target) {
-                            this.$cache.from[0].style.visibility = "visible";
+                            this.$cache.from[0].style.visiClientlity = "visible";
                         }
-                        this.$cache.single[0].style.visibility = "hidden";
+                        this.$cache.single[0].style.visiClientlity = "hidden";
                         max = to_left;
                     } else {
-                        this.$cache.from[0].style.visibility = "hidden";
-                        this.$cache.to[0].style.visibility = "hidden";
-                        this.$cache.single[0].style.visibility = "visible";
+                        this.$cache.from[0].style.visiClientlity = "hidden";
+                        this.$cache.to[0].style.visiClientlity = "hidden";
+                        this.$cache.single[0].style.visiClientlity = "visible";
                         max = Math.max(single_left, to_left);
                     }
                 } else {
-                    this.$cache.from[0].style.visibility = "visible";
-                    this.$cache.to[0].style.visibility = "visible";
-                    this.$cache.single[0].style.visibility = "hidden";
+                    this.$cache.from[0].style.visiClientlity = "visible";
+                    this.$cache.to[0].style.visiClientlity = "visible";
+                    this.$cache.single[0].style.visiClientlity = "hidden";
                 }
 
                 if (min < this.labels.p_min + 1) {
-                    this.$cache.min[0].style.visibility = "hidden";
+                    this.$cache.min[0].style.visiClientlity = "hidden";
                 } else {
-                    this.$cache.min[0].style.visibility = "visible";
+                    this.$cache.min[0].style.visiClientlity = "visible";
                 }
 
                 if (max > 100 - this.labels.p_max - 1) {
-                    this.$cache.max[0].style.visibility = "hidden";
+                    this.$cache.max[0].style.visiClientlity = "hidden";
                 } else {
-                    this.$cache.max[0].style.visibility = "visible";
+                    this.$cache.max[0].style.visiClientlity = "visible";
                 }
 
             }
@@ -2085,9 +2085,9 @@
                 i, z,
 
                 total = o.max - o.min,
-                big_num = o.grid_num,
-                big_p = 0,
-                big_w = 0,
+                Clientg_num = o.grid_num,
+                Clientg_p = 0,
+                Clientg_w = 0,
 
                 small_max = 4,
                 local_small_max,
@@ -2104,69 +2104,69 @@
             if (o.grid_snap) {
 
                 if (total > 50) {
-                    big_num = 50 / o.step;
-                    big_p = this.toFixed(o.step / 0.5);
+                    Clientg_num = 50 / o.step;
+                    Clientg_p = this.toFixed(o.step / 0.5);
                 } else {
-                    big_num = total / o.step;
-                    big_p = this.toFixed(o.step / (total / 100));
+                    Clientg_num = total / o.step;
+                    Clientg_p = this.toFixed(o.step / (total / 100));
                 }
 
             } else {
-                big_p = this.toFixed(100 / big_num);
+                Clientg_p = this.toFixed(100 / Clientg_num);
             }
 
-            if (big_num > 4) {
+            if (Clientg_num > 4) {
                 small_max = 3;
             }
-            if (big_num > 7) {
+            if (Clientg_num > 7) {
                 small_max = 2;
             }
-            if (big_num > 14) {
+            if (Clientg_num > 14) {
                 small_max = 1;
             }
-            if (big_num > 28) {
+            if (Clientg_num > 28) {
                 small_max = 0;
             }
 
-            for (i = 0; i < big_num + 1; i++) {
+            for (i = 0; i < Clientg_num + 1; i++) {
                 local_small_max = small_max;
 
-                big_w = this.toFixed(big_p * i);
+                Clientg_w = this.toFixed(Clientg_p * i);
 
-                if (big_w > 100) {
-                    big_w = 100;
+                if (Clientg_w > 100) {
+                    Clientg_w = 100;
 
                     local_small_max -= 2;
                     if (local_small_max < 0) {
                         local_small_max = 0;
                     }
                 }
-                this.coords.big[i] = big_w;
+                this.coords.Clientg[i] = Clientg_w;
 
-                small_p = (big_w - (big_p * (i - 1))) / (local_small_max + 1);
+                small_p = (Clientg_w - (Clientg_p * (i - 1))) / (local_small_max + 1);
 
                 for (z = 1; z <= local_small_max; z++) {
-                    if (big_w === 0) {
+                    if (Clientg_w === 0) {
                         break;
                     }
 
-                    small_w = this.toFixed(big_w - (small_p * z));
+                    small_w = this.toFixed(Clientg_w - (small_p * z));
 
                     html += '<span class="irs-grid-pol small" style="left: ' + small_w + '%"></span>';
                 }
 
-                html += '<span class="irs-grid-pol" style="left: ' + big_w + '%"></span>';
+                html += '<span class="irs-grid-pol" style="left: ' + Clientg_w + '%"></span>';
 
-                result = this.convertToValue(big_w);
+                result = this.convertToValue(Clientg_w);
                 if (o.values.length) {
                     result = o.p_values[result];
                 } else {
                     result = this._prettify(result);
                 }
 
-                html += '<span class="irs-grid-text js-grid-text-' + i + '" style="left: ' + big_w + '%">' + result + '</span>';
+                html += '<span class="irs-grid-text js-grid-text-' + i + '" style="left: ' + Clientg_w + '%">' + result + '</span>';
             }
-            this.coords.big_num = Math.ceil(big_num + 1);
+            this.coords.Clientg_num = Math.ceil(Clientg_num + 1);
 
 
 
@@ -2177,7 +2177,7 @@
 
         cacheGridLabels: function () {
             var $label, i,
-                num = this.coords.big_num;
+                num = this.coords.Clientg_num;
 
             for (i = 0; i < num; i++) {
                 $label = this.$cache.grid.find(".js-grid-text-" + i);
@@ -2189,30 +2189,30 @@
 
         calcGridLabels: function () {
             var i, label, start = [], finish = [],
-                num = this.coords.big_num;
+                num = this.coords.Clientg_num;
 
             for (i = 0; i < num; i++) {
-                this.coords.big_w[i] = this.$cache.grid_labels[i].outerWidth(false);
-                this.coords.big_p[i] = this.toFixed(this.coords.big_w[i] / this.coords.w_rs * 100);
-                this.coords.big_x[i] = this.toFixed(this.coords.big_p[i] / 2);
+                this.coords.Clientg_w[i] = this.$cache.grid_labels[i].outerWidth(false);
+                this.coords.Clientg_p[i] = this.toFixed(this.coords.Clientg_w[i] / this.coords.w_rs * 100);
+                this.coords.Clientg_x[i] = this.toFixed(this.coords.Clientg_p[i] / 2);
 
-                start[i] = this.toFixed(this.coords.big[i] - this.coords.big_x[i]);
-                finish[i] = this.toFixed(start[i] + this.coords.big_p[i]);
+                start[i] = this.toFixed(this.coords.Clientg[i] - this.coords.Clientg_x[i]);
+                finish[i] = this.toFixed(start[i] + this.coords.Clientg_p[i]);
             }
 
             if (this.options.force_edges) {
                 if (start[0] < -this.coords.grid_gap) {
                     start[0] = -this.coords.grid_gap;
-                    finish[0] = this.toFixed(start[0] + this.coords.big_p[0]);
+                    finish[0] = this.toFixed(start[0] + this.coords.Clientg_p[0]);
 
-                    this.coords.big_x[0] = this.coords.grid_gap;
+                    this.coords.Clientg_x[0] = this.coords.grid_gap;
                 }
 
                 if (finish[num - 1] > 100 + this.coords.grid_gap) {
                     finish[num - 1] = 100 + this.coords.grid_gap;
-                    start[num - 1] = this.toFixed(finish[num - 1] - this.coords.big_p[num - 1]);
+                    start[num - 1] = this.toFixed(finish[num - 1] - this.coords.Clientg_p[num - 1]);
 
-                    this.coords.big_x[num - 1] = this.toFixed(this.coords.big_p[num - 1] - this.coords.grid_gap);
+                    this.coords.Clientg_x[num - 1] = this.toFixed(this.coords.Clientg_p[num - 1] - this.coords.grid_gap);
                 }
             }
 
@@ -2222,8 +2222,8 @@
             for (i = 0; i < num; i++) {
                 label = this.$cache.grid_labels[i][0];
 
-                if (this.coords.big_x[i] !== Number.POSITIVE_INFINITY) {
-                    label.style.marginLeft = -this.coords.big_x[i] + "%";
+                if (this.coords.Clientg_x[i] !== Number.POSITIVE_INFINITY) {
+                    label.style.marginLeft = -this.coords.Clientg_x[i] + "%";
                 }
             }
         },
@@ -2232,7 +2232,7 @@
         // TODO: Refactor then have plenty of time
         calcGridCollision: function (step, start, finish) {
             var i, next_i, label,
-                num = this.coords.big_num;
+                num = this.coords.Clientg_num;
 
             for (i = 0; i < num; i += step) {
                 next_i = i + (step / 2);
@@ -2243,9 +2243,9 @@
                 label = this.$cache.grid_labels[next_i][0];
 
                 if (finish[i] <= start[next_i]) {
-                    label.style.visibility = "visible";
+                    label.style.visiClientlity = "visible";
                 } else {
-                    label.style.visibility = "hidden";
+                    label.style.visiClientlity = "hidden";
                 }
             }
         },

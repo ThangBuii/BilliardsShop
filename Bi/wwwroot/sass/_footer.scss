@@ -1,11 +1,11 @@
 /**********************footer part css*******************/
 .footer_part {
 	padding: 130px 0px 25px;
-	@media #{$small_mobile} {
+	@media #{$small_moClientle} {
 		padding: 70px 0px 25px;
 	}
 
-	@media #{$large_mobile} {
+	@media #{$large_moClientle} {
 		padding: 70px 0px 25px;
 	}
 
@@ -20,11 +20,11 @@
 	}
 
 	.single_footer_part {
-		@media #{$small_mobile} {
+		@media #{$small_moClientle} {
 			margin-bottom: 20px;
 		}
 
-		@media #{$large_mobile} {
+		@media #{$large_moClientle} {
 			margin-bottom: 20px;
 		}
 
@@ -39,11 +39,11 @@
 			margin-bottom: 30px;
 			font-weight: 500;
 
-			@media #{$small_mobile} {
+			@media #{$small_moClientle} {
 				margin-bottom: 15px;
 			}
 
-			@media #{$large_mobile} {
+			@media #{$large_moClientle} {
 				margin-bottom: 15px;
 			}
 
@@ -149,12 +149,12 @@
 					  }
 				  }
 				  
-				@media #{$small_mobile} {
+				@media #{$small_moClientle} {
 					margin-left: 0px;
 					margin-right: 25px;
 				}
 
-				@media #{$large_mobile} {
+				@media #{$large_moClientle} {
 					margin-left: 0px;
 					margin-right: 25px;
 				}
@@ -171,12 +171,12 @@
 			}
 		}
 
-		@media #{$small_mobile} {
+		@media #{$small_moClientle} {
 			float: left;
 			margin-top: 15px;
 		}
 
-		@media #{$large_mobile} {}
+		@media #{$large_moClientle} {}
 
 		@media #{$tab_device} {}
 
@@ -221,7 +221,7 @@
 			float: none;
 		}
 	}
-	@media #{$large_mobile} {
+	@media #{$large_moClientle} {
 		.justify-content-around{
 			justify-content: flex-start !important;
 		}

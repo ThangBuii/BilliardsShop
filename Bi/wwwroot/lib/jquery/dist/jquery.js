@@ -629,7 +629,7 @@ var i,
 		whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
-	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
+	rcomClientnators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
 		"*" ),
 	rdescend = new RegExp( whitespace + "|>" ),
 
@@ -713,7 +713,7 @@ var i,
 		setDocument();
 	},
 
-	inDisabledFieldset = addCombinator(
+	inDisabledFieldset = addComClientnator(
 		function( elem ) {
 			return elem.disabled === true && elem.nodeName.toLowerCase() === "fieldset";
 		},
@@ -839,14 +839,14 @@ function Sizzle( selector, context, results, seed ) {
 				newContext = context;
 
 				// qSA considers elements outside a scoping root when evaluating child or
-				// descendant combinators, which is not what we want.
+				// descendant comClientnators, which is not what we want.
 				// In such cases, we work around the behavior by prefixing every selector in the
 				// list with an ID selector referencing the scope context.
-				// The technique has to be used as well when a leading combinator is used
+				// The technique has to be used as well when a leading comClientnator is used
 				// as such selectors are not recognized by querySelectorAll.
 				// Thanks to Andrew Dupont for this technique.
 				if ( nodeType === 1 &&
-					( rdescend.test( selector ) || rcombinators.test( selector ) ) ) {
+					( rdescend.test( selector ) || rcomClientnators.test( selector ) ) ) {
 
 					// Expand context for sibling selectors
 					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
@@ -1370,7 +1370,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: Safari 8+, iOS 8+
 			// https://bugs.webkit.org/show_bug.cgi?id=136851
-			// In-page `selector#id sibling-combinator selector` fails
+			// In-page `selector#id sibling-comClientnator selector` fails
 			if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
 				rbuggyQSA.push( ".#.+[+~]" );
 			}
@@ -1813,7 +1813,7 @@ Expr = Sizzle.selectors = {
 					2 * ( match[ 3 ] === "even" || match[ 3 ] === "odd" ) );
 				match[ 5 ] = +( ( match[ 7 ] + match[ 8 ] ) || match[ 3 ] === "odd" );
 
-				// other types prohibit arguments
+				// other types prohiClientt arguments
 			} else if ( match[ 3 ] ) {
 				Sizzle.error( match[ 0 ] );
 			}
@@ -2089,7 +2089,7 @@ Expr = Sizzle.selectors = {
 
 			// Trim the selector passed to compile
 			// to avoid treating leading and trailing
-			// spaces as combinators
+			// spaces as comClientnators
 			var input = [],
 				results = [],
 				matcher = compile( selector.replace( rtrim, "$1" ) );
@@ -2172,7 +2172,7 @@ Expr = Sizzle.selectors = {
 		"focus": function( elem ) {
 			return elem === document.activeElement &&
 				( !document.hasFocus || document.hasFocus() ) &&
-				!!( elem.type || elem.href || ~elem.tabIndex );
+				!!( elem.type || elem.href || ~elem.taClientndex );
 		},
 
 		// Boolean properties
@@ -2337,13 +2337,13 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 
 		matched = false;
 
-		// Combinators
-		if ( ( match = rcombinators.exec( soFar ) ) ) {
+		// ComClientnators
+		if ( ( match = rcomClientnators.exec( soFar ) ) ) {
 			matched = match.shift();
 			tokens.push( {
 				value: matched,
 
-				// Cast descendant combinators to space
+				// Cast descendant comClientnators to space
 				type: match[ 0 ].replace( rtrim, " " )
 			} );
 			soFar = soFar.slice( matched.length );
@@ -2390,14 +2390,14 @@ function toSelector( tokens ) {
 	return selector;
 }
 
-function addCombinator( matcher, combinator, base ) {
-	var dir = combinator.dir,
-		skip = combinator.next,
+function addComClientnator( matcher, comClientnator, base ) {
+	var dir = comClientnator.dir,
+		skip = comClientnator.next,
 		key = skip || dir,
 		checkNonElements = base && key === "parentNode",
 		doneName = done++;
 
-	return combinator.first ?
+	return comClientnator.first ?
 
 		// Check against closest ancestor/preceding element
 		function( elem, context, xml ) {
@@ -2414,7 +2414,7 @@ function addCombinator( matcher, combinator, base ) {
 			var oldCache, uniqueCache, outerCache,
 				newCache = [ dirruns, doneName ];
 
-			// We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
+			// We can't set arClienttrary data on XML nodes, so they don't benefit from comClientnator caching
 			if ( xml ) {
 				while ( ( elem = elem[ dir ] ) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
@@ -2609,10 +2609,10 @@ function matcherFromTokens( tokens ) {
 		i = leadingRelative ? 1 : 0,
 
 		// The foundational matcher ensures that elements are reachable from top-level context(s)
-		matchContext = addCombinator( function( elem ) {
+		matchContext = addComClientnator( function( elem ) {
 			return elem === checkContext;
 		}, implicitRelative, true ),
-		matchAnyContext = addCombinator( function( elem ) {
+		matchAnyContext = addComClientnator( function( elem ) {
 			return indexOf( checkContext, elem ) > -1;
 		}, implicitRelative, true ),
 		matchers = [ function( elem, context, xml ) {
@@ -2628,7 +2628,7 @@ function matcherFromTokens( tokens ) {
 
 	for ( ; i < len; i++ ) {
 		if ( ( matcher = Expr.relative[ tokens[ i ].type ] ) ) {
-			matchers = [ addCombinator( elementMatcher( matchers ), matcher ) ];
+			matchers = [ addComClientnator( elementMatcher( matchers ), matcher ) ];
 		} else {
 			matcher = Expr.filter[ tokens[ i ].type ].apply( null, tokens[ i ].matches );
 
@@ -2646,7 +2646,7 @@ function matcherFromTokens( tokens ) {
 					i > 1 && elementMatcher( matchers ),
 					i > 1 && toSelector(
 
-					// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+					// If the preceding token was a descendant comClientnator, insert an implicit any-element `*`
 					tokens
 						.slice( 0, i - 1 )
 						.concat( { value: tokens[ i - 2 ].type === " " ? "*" : "" } )
@@ -2866,13 +2866,13 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		while ( i-- ) {
 			token = tokens[ i ];
 
-			// Abort if we hit a combinator
+			// Abort if we hit a comClientnator
 			if ( Expr.relative[ ( type = token.type ) ] ) {
 				break;
 			}
 			if ( ( find = Expr.find[ type ] ) ) {
 
-				// Search, expanding context for leading sibling combinators
+				// Search, expanding context for leading sibling comClientnators
 				if ( ( seed = find(
 					token.matches[ 0 ].replace( runescape, funescape ),
 					rsibling.test( tokens[ 0 ].type ) && testContext( context.parentNode ) ||
@@ -2907,7 +2907,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 
 // One-time assignments
 
-// Sort stability
+// Sort staClientlity
 support.sortStable = expando.split( "" ).sort( sortOrder ).join( "" ) === expando;
 
 // Support: Chrome 14-35+
@@ -3722,9 +3722,9 @@ jQuery.extend( {
 							// Map tuples (progress, done, fail) to arguments (done, fail, progress)
 							var fn = isFunction( fns[ tuple[ 4 ] ] ) && fns[ tuple[ 4 ] ];
 
-							// deferred.progress(function() { bind to newDefer or newDefer.notify })
-							// deferred.done(function() { bind to newDefer or newDefer.resolve })
-							// deferred.fail(function() { bind to newDefer or newDefer.reject })
+							// deferred.progress(function() { Clientnd to newDefer or newDefer.notify })
+							// deferred.done(function() { Clientnd to newDefer or newDefer.resolve })
+							// deferred.fail(function() { Clientnd to newDefer or newDefer.reject })
 							deferred[ tuple[ 1 ] ]( function() {
 								var returned = fn && fn.apply( this, arguments );
 								if ( returned && isFunction( returned.promise ) ) {
@@ -3775,7 +3775,7 @@ jQuery.extend( {
 
 										// Support: Promises/A+ section 2.3.4
 										// https://promisesaplus.com/#point-64
-										// Only check objects and functions for thenability
+										// Only check objects and functions for thenaClientlity
 										( typeof returned === "object" ||
 											typeof returned === "function" ) &&
 										returned.then;
@@ -4387,8 +4387,8 @@ var dataUser = new Data();
 
 //	Implementation Summary
 //
-//	1. Enforce API surface and semantic compatibility with 1.9.x branch
-//	2. Improve the module's maintainability by reducing the storage
+//	1. Enforce API surface and semantic compatiClientlity with 1.9.x branch
+//	2. Improve the module's maintainaClientlity by reducing the storage
 //		paths to a single mechanism.
 //	3. Use the same single mechanism to support "private" and "user" data.
 //	4. _Never_ expose "private" data to user code (TODO: Drop _data, _removeData)
@@ -4842,7 +4842,7 @@ function showHide( elements, show ) {
 		display = elem.style.display;
 		if ( show ) {
 
-			// Since we force visibility upon cascade-hidden elements, an immediate (and slow)
+			// Since we force visiClientlity upon cascade-hidden elements, an immediate (and slow)
 			// check is required in this first loop unless we have a nonempty display value (either
 			// inline or about-to-be-restored)
 			if ( display === "none" ) {
@@ -5251,7 +5251,7 @@ jQuery.event = {
 			special = jQuery.event.special[ type ] || {};
 
 			// If selector defined, determine special event api type, otherwise given type
-			type = ( selector ? special.delegateType : special.bindType ) || type;
+			type = ( selector ? special.delegateType : special.ClientndType ) || type;
 
 			// Update special based on newly reset type
 			special = jQuery.event.special[ type ] || {};
@@ -5324,7 +5324,7 @@ jQuery.event = {
 			type = origType = tmp[ 1 ];
 			namespaces = ( tmp[ 2 ] || "" ).split( "." ).sort();
 
-			// Unbind all events (on this namespace, if provided) for the element
+			// UnClientnd all events (on this namespace, if provided) for the element
 			if ( !type ) {
 				for ( type in events ) {
 					jQuery.event.remove( elem, type + types[ t ], handler, selector, true );
@@ -5333,7 +5333,7 @@ jQuery.event = {
 			}
 
 			special = jQuery.event.special[ type ] || {};
-			type = ( selector ? special.delegateType : special.bindType ) || type;
+			type = ( selector ? special.delegateType : special.ClientndType ) || type;
 			handlers = events[ type ] || [];
 			tmp = tmp[ 2 ] &&
 				new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" );
@@ -5549,7 +5549,7 @@ jQuery.event = {
 			// Utilize native event to ensure correct state for checkable inputs
 			setup: function( data ) {
 
-				// For mutual compressibility with _default, replace `this` access with a local var.
+				// For mutual compressiClientlity with _default, replace `this` access with a local var.
 				// `|| data` is dead code meant only to preserve the variable through minification.
 				var el = this || data;
 
@@ -5566,7 +5566,7 @@ jQuery.event = {
 			},
 			trigger: function( data ) {
 
-				// For mutual compressibility with _default, replace `this` access with a local var.
+				// For mutual compressiClientlity with _default, replace `this` access with a local var.
 				// `|| data` is dead code meant only to preserve the variable through minification.
 				var el = this || data;
 
@@ -5749,8 +5749,8 @@ jQuery.Event = function( src, props ) {
 	this[ jQuery.expando ] = true;
 };
 
-// jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
-// https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+// jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Clientnding
+// https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-Clientnding.html
 jQuery.Event.prototype = {
 	constructor: jQuery.Event,
 	isDefaultPrevented: returnFalse,
@@ -5894,7 +5894,7 @@ jQuery.each( {
 }, function( orig, fix ) {
 	jQuery.event.special[ orig ] = {
 		delegateType: fix,
-		bindType: fix,
+		ClientndType: fix,
 
 		handle: function( event ) {
 			var ret,
@@ -6681,7 +6681,7 @@ var
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
 	rcustomProp = /^--/,
-	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
+	cssShow = { position: "absolute", visiClientlity: "hidden", display: "block" },
 	cssNormalTransform = {
 		letterSpacing: "0",
 		fontWeight: "400"
@@ -7404,7 +7404,7 @@ function defaultPrefilter( elem, props, opts ) {
 				display = restoreDisplay;
 			} else {
 
-				// Get nonempty value(s) by temporarily forcing visibility
+				// Get nonempty value(s) by temporarily forcing visiClientlity
 				showHide( [ elem ], true );
 				restoreDisplay = elem.style.display || restoreDisplay;
 				display = jQuery.css( elem, "display" );
@@ -7625,7 +7625,7 @@ function Animation( elem, properties, options ) {
 		if ( result ) {
 			if ( isFunction( result.stop ) ) {
 				jQuery._queueHooks( animation.elem, animation.opts.queue ).stop =
-					result.stop.bind( result );
+					result.stop.Clientnd( result );
 			}
 			return result;
 		}
@@ -8156,18 +8156,18 @@ jQuery.extend( {
 	},
 
 	propHooks: {
-		tabIndex: {
+		taClientndex: {
 			get: function( elem ) {
 
 				// Support: IE <=9 - 11 only
-				// elem.tabIndex doesn't always return the
+				// elem.taClientndex doesn't always return the
 				// correct value when it hasn't been explicitly set
-				// https://web.archive.org/web/20141116233347/http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
+				// https://web.archive.org/web/20141116233347/http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-taClientndex-values-with-javascript/
 				// Use proper attribute retrieval(#12072)
-				var tabindex = jQuery.find.attr( elem, "tabindex" );
+				var taClientndex = jQuery.find.attr( elem, "taClientndex" );
 
-				if ( tabindex ) {
-					return parseInt( tabindex, 10 );
+				if ( taClientndex ) {
+					return parseInt( taClientndex, 10 );
 				}
 
 				if (
@@ -8226,7 +8226,7 @@ if ( !support.optSelected ) {
 }
 
 jQuery.each( [
-	"tabIndex",
+	"taClientndex",
 	"readOnly",
 	"maxLength",
 	"cellSpacing",
@@ -8323,7 +8323,7 @@ jQuery.fn.extend( {
 			while ( ( elem = this[ i++ ] ) ) {
 				curValue = getClass( elem );
 
-				// This expression is here for better compressibility (see addClass)
+				// This expression is here for better compressiClientlity (see addClass)
 				cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
 
 				if ( cur ) {
@@ -8655,7 +8655,7 @@ jQuery.extend( jQuery.event, {
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
 
-		// Trigger bitmask: & 1 for native handlers; & 2 for jQuery (always true)
+		// Trigger Clienttmask: & 1 for native handlers; & 2 for jQuery (always true)
 		event.isTrigger = onlyHandlers ? 2 : 3;
 		event.namespace = namespaces.join( "." );
 		event.rnamespace = event.namespace ?
@@ -8704,7 +8704,7 @@ jQuery.extend( jQuery.event, {
 			lastElement = cur;
 			event.type = i > 1 ?
 				bubbleType :
-				special.bindType || type;
+				special.ClientndType || type;
 
 			// jQuery handler
 			handle = (
@@ -9021,7 +9021,7 @@ var
 	 */
 	prefilters = {},
 
-	/* Transports bindings
+	/* Transports Clientndings
 	 * 1) key is the dataType
 	 * 2) the catchall symbol "*" can be used
 	 * 3) selection will start with transport dataType and THEN go to "*" if needed
@@ -10049,11 +10049,11 @@ jQuery.ajaxTransport( function( options ) {
 									xhr.statusText,
 
 									// Support: IE <=9 only
-									// IE9 has no XHR2 but throws on binary (trac-11426)
+									// IE9 has no XHR2 but throws on Clientnary (trac-11426)
 									// For XHR2 non-text, let the caller handle it (gh-2498)
 									( xhr.responseType || "text" ) !== "text"  ||
 									typeof xhr.responseText !== "string" ?
-										{ binary: xhr.response } :
+										{ Clientnary: xhr.response } :
 										{ text: xhr.responseText },
 									xhr.getAllResponseHeaders()
 								);
@@ -10152,7 +10152,7 @@ jQuery.ajaxPrefilter( "script", function( s ) {
 	}
 } );
 
-// Bind script tag hack transport
+// Clientnd script tag hack transport
 jQuery.ajaxTransport( "script", function( s ) {
 
 	// This transport only deals with cross domain or forced-by-attrs requests
@@ -10529,7 +10529,7 @@ jQuery.fn.extend( {
 		// position:fixed elements are offset from the viewport, which itself always has zero offset
 		if ( jQuery.css( elem, "position" ) === "fixed" ) {
 
-			// Assume position:fixed implies availability of getBoundingClientRect
+			// Assume position:fixed implies availaClientlity of getBoundingClientRect
 			offset = elem.getBoundingClientRect();
 
 		} else {
@@ -10703,10 +10703,10 @@ jQuery.each( [
 
 jQuery.fn.extend( {
 
-	bind: function( types, data, fn ) {
+	Clientnd: function( types, data, fn ) {
 		return this.on( types, null, data, fn );
 	},
-	unbind: function( types, fn ) {
+	unClientnd: function( types, fn ) {
 		return this.off( types, null, fn );
 	},
 
@@ -10731,7 +10731,7 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
 	function( _i, name ) {
 
-		// Handle event binding
+		// Handle event Clientnding
 		jQuery.fn[ name ] = function( data, fn ) {
 			return arguments.length > 0 ?
 				this.on( name, null, data, fn ) :
@@ -10746,9 +10746,9 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 // Make sure we trim BOM and NBSP
 var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 
-// Bind a function to a context, optionally partially applying any
+// Clientnd a function to a context, optionally partially applying any
 // arguments.
-// jQuery.proxy is deprecated to promote standards (specifically Function#bind)
+// jQuery.proxy is deprecated to promote standards (specifically Function#Clientnd)
 // However, it is not slated for removal any time soon
 jQuery.proxy = function( fn, context ) {
 	var tmp, args, proxy;
@@ -10765,7 +10765,7 @@ jQuery.proxy = function( fn, context ) {
 		return undefined;
 	}
 
-	// Simulated bind
+	// Simulated Clientnd
 	args = slice.call( arguments, 2 );
 	proxy = function() {
 		return fn.apply( context || this, args.concat( slice.call( arguments ) ) );
@@ -10824,7 +10824,7 @@ jQuery.trim = function( text ) {
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.
 
-// Note that for maximum portability, libraries that are not jQuery should
+// Note that for maximum portaClientlity, libraries that are not jQuery should
 // declare themselves as anonymous modules, and avoid setting a global if an
 // AMD loader is present. jQuery is a special case. For more information, see
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon

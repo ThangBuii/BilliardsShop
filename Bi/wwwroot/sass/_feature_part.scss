@@ -7,11 +7,11 @@
     position: relative;
     height: 400px;
 
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
       padding: 35px 20px;
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
       height: 300px;
       padding: 35px 20px;
     }
@@ -32,11 +32,11 @@
       font-weight: 700;
       margin-top: 21px;
 
-      @media #{$small_mobile} {
+      @media #{$small_moClientle} {
         margin-top: 10px;
       }
 
-      @media #{$large_mobile} {}
+      @media #{$large_moClientle} {}
 
       @media #{$tab_device} {}
 
@@ -55,7 +55,7 @@
       line-height: 15px;
       z-index: 5;
       opacity: 0;
-      visibility: hidden;
+      visiClientlity: hidden;
       @include transform_time(0.5s);
 
       i {
@@ -70,14 +70,14 @@
       bottom: 0;
       right: 15px;
 
-      @media #{$small_mobile} {
+      @media #{$small_moClientle} {
         max-height: 247px;
         right: 0;
         left: 0;
         margin: 0 auto;
       }
 
-      @media #{$large_mobile} {
+      @media #{$large_moClientle} {
         max-height: 195px;
         right: 0;
         left: 0;
@@ -103,7 +103,7 @@
       .feature_btn {
         bottom: 50px;
         opacity: 1;
-        visibility: visible;
+        visiClientlity: visible;
       }
     }
   }

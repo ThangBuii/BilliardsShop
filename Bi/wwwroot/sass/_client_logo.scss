@@ -11,14 +11,14 @@
         float: left;
         border-bottom: 1px solid $border_color;
 
-        @media #{$small_mobile}{
+        @media #{$small_moClientle}{
             height: 70px;
             width: 25%;
             padding: 6px;
             border-bottom: 0px solid transparent;
             border-left: 0px solid transparent;
         }
-        @media #{$large_mobile}{
+        @media #{$large_moClientle}{
         height: 100px;
         padding: 8px;
         }
@@ -36,10 +36,10 @@
         &:nth-child(n+6){
             border-bottom: 0px solid transparent;
         }
-        @media #{$small_mobile}{
+        @media #{$small_moClientle}{
 
         }
-        @media #{$large_mobile}{
+        @media #{$large_moClientle}{
         
         }
         @media #{$tab_device}{

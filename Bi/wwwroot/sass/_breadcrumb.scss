@@ -22,11 +22,11 @@
 				font-weight: 700;
 				margin-bottom: 10px;
 				text-transform: capitalize;
-				@media #{$small_mobile} {
+				@media #{$small_moClientle} {
 					font-size: 25px;
 				}
 
-				@media #{$large_mobile} {
+				@media #{$large_moClientle} {
 					font-size: 25px;
 				}
 

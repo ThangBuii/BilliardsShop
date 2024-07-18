@@ -288,10 +288,10 @@
   clear: both;
   display: flex;
   padding: 10px 0;
-  @media #{$small_mobile}{
+  @media #{$small_moClientle}{
     display: block !important;
   }
-  @media #{$large_mobile}{
+  @media #{$large_moClientle}{
   
   }
   
@@ -380,12 +380,12 @@
   }
 
   .single_product_menu {
-    @media #{$small_mobile}{
+    @media #{$small_moClientle}{
       width: 50%;
       float: left;
       margin-bottom: 20px;
     }
-    @media #{$large_mobile}{
+    @media #{$large_moClientle}{
     
     }
     @media #{$tab_device}{
@@ -397,11 +397,11 @@
     p {
       color: #020202;
       font-weight: 500;
-      @media #{$small_mobile}{
+      @media #{$small_moClientle}{
         font-size: 13px;
         line-height: 13px;
       }
-      @media #{$large_mobile}{
+      @media #{$large_moClientle}{
       
       }
       @media #{$tab_device}{
@@ -585,10 +585,10 @@
 }
 
 .s_product_text {
-  @media #{$small_mobile}{
+  @media #{$small_moClientle}{
     margin-top: 30px;
   }
-  @media #{$large_mobile}{
+  @media #{$large_moClientle}{
   
   }
   
@@ -603,10 +603,10 @@
     font-size: 15px;
     text-transform: capitalize;
     margin-bottom: 40px;
-    @media #{$small_mobile}{
+    @media #{$small_moClientle}{
       margin-bottom: 15px;
     }
-    @media #{$large_mobile}{
+    @media #{$large_moClientle}{
     
     }
     
@@ -745,12 +745,12 @@
       display: inline-block;
     }
   }
-  @media #{$small_mobile}{
+  @media #{$small_moClientle}{
     .media{
       display: block;
     }
   }  
-  @media #{$large_mobile}{
+  @media #{$large_moClientle}{
     .media{
       display: block;
     }
@@ -1533,7 +1533,7 @@
   }
 }
 
-.billing_details {
+.Clientlling_details {
   h3 {
     font-size: 18px;
     color: $title-color;
@@ -1806,7 +1806,7 @@
 
 .radion_btn input[type="radio"] {
   position: absolute;
-  visibility: hidden;
+  visiClientlity: hidden;
 }
 
 .radion_btn {
@@ -2007,10 +2007,10 @@
   .product_count .input-number {
       display: inline-block;
       width: 60px;
-      @media #{$small_mobile}{
+      @media #{$small_moClientle}{
         width: 30px;
       }
-      @media #{$large_mobile}{
+      @media #{$large_moClientle}{
       
       }
 
@@ -2043,10 +2043,10 @@
     padding: 13px 36px;
     box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
     border: 1px solid $btn_bg;
-    @media #{$small_mobile}{
+    @media #{$small_moClientle}{
       padding: 13px 20px;
     }
-    @media #{$large_mobile}{
+    @media #{$large_moClientle}{
     
     }
 

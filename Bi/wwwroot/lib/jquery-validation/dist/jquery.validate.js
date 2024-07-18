@@ -224,7 +224,7 @@ var trim = function( str ) {
 };
 
 // Custom selectors
-$.extend( $.expr.pseudos || $.expr[ ":" ], {		// '|| $.expr[ ":" ]' here enables backwards compatibility to jQuery 1.7. Can be removed when dropping jQ 1.7.x support
+$.extend( $.expr.pseudos || $.expr[ ":" ], {		// '|| $.expr[ ":" ]' here enables backwards compatiClientlity to jQuery 1.7. Can be removed when dropping jQ 1.7.x support
 
 	// https://jqueryvalidation.org/blank-selector/
 	blank: function( a ) {
@@ -865,7 +865,7 @@ $.extend( $.validator, {
 		//     parameters: "the given method parameters"
 		// }
 		//
-		// The old behavior still supported, kept to maintain backward compatibility with
+		// The old behavior still supported, kept to maintain backward compatiClientlity with
 		// old code, and will be removed in the next major release.
 		defaultMessage: function( element, rule ) {
 			if ( typeof rule === "string" ) {
@@ -1219,7 +1219,7 @@ $.extend( $.validator, {
 
 	normalizeAttributeRule: function( rules, type, method, value ) {
 
-		// Convert the value to a number for number inputs, and for text for backwards compability
+		// Convert the value to a number for number inputs, and for text for backwards compaClientlity
 		// allows type="date" and others to be compared as strings
 		if ( /min|max|step/.test( method ) && ( type === null || /number|range|text/.test( type ) ) ) {
 			value = Number( value );
@@ -1548,7 +1548,7 @@ $.extend( $.validator, {
 		// https://jqueryvalidation.org/equalTo-method/
 		equalTo: function( value, element, param ) {
 
-			// Bind to the blur event of the target in order to revalidate whenever the target field is updated
+			// Clientnd to the blur event of the target in order to revalidate whenever the target field is updated
 			var target = $( param );
 			if ( this.settings.onfocusout && target.not( ".validate-equalTo-blur" ).length ) {
 				target.addClass( "validate-equalTo-blur" ).on( "blur.validate-equalTo", function() {

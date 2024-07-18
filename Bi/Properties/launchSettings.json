@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "Bi": {
+    "Client": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

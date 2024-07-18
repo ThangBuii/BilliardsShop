@@ -1,9 +1,9 @@
 /**************** blog part css start ****************/
 .blog_part{
-    @media #{$small_mobile}{
+    @media #{$small_moClientle}{
         padding-bottom: 50px;
     }
-    @media #{$large_mobile}{
+    @media #{$large_moClientle}{
         padding-bottom: 50px;
     }
     @media #{$tab_device}{
@@ -21,10 +21,10 @@
         font-style: inherit !important; 
     }
     .single-home-blog{
-        @media #{$small_mobile}{
+        @media #{$small_moClientle}{
             margin-bottom: 20px;
         }
-        @media #{$large_mobile}{
+        @media #{$large_moClientle}{
             margin-bottom: 20px;
         }
         @media #{$tab_device}{
@@ -51,10 +51,10 @@
                     border: 1px solid transparent;
                 }
 
-                @media #{$small_mobile}{
+                @media #{$small_moClientle}{
                     padding: 15px 10px;
                 }
-                @media #{$large_mobile}{
+                @media #{$large_moClientle}{
                     padding: 15px;
                 }
                 @media #{$tab_device}{
@@ -92,11 +92,11 @@
                 margin-bottom: 10px;
                 display: inline-block;
                 margin-top: 10px;
-                @media #{$small_mobile}{
+                @media #{$small_moClientle}{
                     margin-bottom: 5px;
                     margin-top: 5px;
                 }
-                @media #{$large_mobile}{
+                @media #{$large_moClientle}{
                     margin-bottom: 5px;
                     margin-top: 5px;
                 }
@@ -115,11 +115,11 @@
                 font-size: 19px;
                 @include transform_time(0.8s);
                 text-transform: capitalize;
-                @media #{$small_mobile}{
+                @media #{$small_moClientle}{
                     margin-bottom: 5px;
                     font-size: 17px;
                 }
-                @media #{$large_mobile}{
+                @media #{$large_moClientle}{
                     margin-bottom: 10px;
                     font-size: 16px;
                 }
@@ -144,10 +144,10 @@
                     display: inline-block;
                     color: $font_4;
                     margin-right: 39px;
-                    @media #{$small_mobile}{
+                    @media #{$small_moClientle}{
                         margin-right: 10px;
                     }
-                    @media #{$large_mobile}{
+                    @media #{$large_moClientle}{
                         margin-right: 10px;
                     }
                     @media #{$tab_device}{

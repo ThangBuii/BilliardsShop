@@ -248,7 +248,7 @@ samp {
   font-family: var(--bs-font-monospace);
   font-size: 1em;
   direction: ltr ;
-  unicode-bidi: bidi-override;
+  unicode-Clientdi: Clientdi-override;
 }
 
 pre {
@@ -4085,7 +4085,7 @@ textarea.form-control-lg {
     bottom: 0;
     z-index: 1000;
     flex-grow: 1;
-    visibility: visible !important;
+    visiClientlity: visible !important;
     background-color: transparent;
     border-left: 0;
     border-right: 0;
@@ -4138,7 +4138,7 @@ textarea.form-control-lg {
     bottom: 0;
     z-index: 1000;
     flex-grow: 1;
-    visibility: visible !important;
+    visiClientlity: visible !important;
     background-color: transparent;
     border-left: 0;
     border-right: 0;
@@ -4191,7 +4191,7 @@ textarea.form-control-lg {
     bottom: 0;
     z-index: 1000;
     flex-grow: 1;
-    visibility: visible !important;
+    visiClientlity: visible !important;
     background-color: transparent;
     border-left: 0;
     border-right: 0;
@@ -4244,7 +4244,7 @@ textarea.form-control-lg {
     bottom: 0;
     z-index: 1000;
     flex-grow: 1;
-    visibility: visible !important;
+    visiClientlity: visible !important;
     background-color: transparent;
     border-left: 0;
     border-right: 0;
@@ -4297,7 +4297,7 @@ textarea.form-control-lg {
     bottom: 0;
     z-index: 1000;
     flex-grow: 1;
-    visibility: visible !important;
+    visiClientlity: visible !important;
     background-color: transparent;
     border-left: 0;
     border-right: 0;
@@ -4349,7 +4349,7 @@ textarea.form-control-lg {
   bottom: 0;
   z-index: 1000;
   flex-grow: 1;
-  visibility: visible !important;
+  visiClientlity: visible !important;
   background-color: transparent;
   border-left: 0;
   border-right: 0;
@@ -5942,8 +5942,8 @@ textarea.form-control-lg {
   float: right;
   width: 100%;
   margin-left: -100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-backface-visiClientlity: hidden;
+  backface-visiClientlity: hidden;
   transition: transform 0.6s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -6190,7 +6190,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  visibility: hidden;
+  visiClientlity: hidden;
   background-color: #fff;
   background-clip: padding-box;
   outline: 0;
@@ -7874,11 +7874,11 @@ textarea.form-control-lg {
 }
 
 .visible {
-  visibility: visible !important;
+  visiClientlity: visible !important;
 }
 
 .invisible {
-  visibility: hidden !important;
+  visiClientlity: hidden !important;
 }
 
 @media (min-width: 576px) {

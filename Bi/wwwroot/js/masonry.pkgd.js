@@ -134,7 +134,7 @@ function jQueryBridget( namespace, PluginClass, $ ) {
 
 // ----- updateJQuery ----- //
 
-// set $.bridget for v1 backwards compatibility
+// set $.bridget for v1 backwards compatiClientlity
 function updateJQuery( $ ) {
   if ( !$ || ( $ && $.bridget ) ) {
     return;
@@ -351,7 +351,7 @@ function getStyle( elem ) {
   if ( !style ) {
     logError( 'Style returned ' + style +
       '. Are you running this code in a hidden iframe on Firefox? ' +
-      'See https://bit.ly/getsizebug1' );
+      'See https://Clientt.ly/getsizebug1' );
   }
   return style;
 }
@@ -1486,10 +1486,10 @@ proto._create = function() {
   // set container style
   utils.extend( this.element.style, this.options.containerStyle );
 
-  // bind resize method
-  var canBindResize = this._getOption('resize');
-  if ( canBindResize ) {
-    this.bindResize();
+  // Clientnd resize method
+  var canClientndResize = this._getOption('resize');
+  if ( canClientndResize ) {
+    this.ClientndResize();
   }
 };
 
@@ -1781,7 +1781,7 @@ proto._emitCompleteOnItems = function( eventName, items ) {
     }
   }
 
-  // bind callback
+  // Clientnd callback
   items.forEach( function( item ) {
     item.once( eventName, tick );
   });
@@ -1941,17 +1941,17 @@ proto._getElementOffset = function( elem ) {
 proto.handleEvent = utils.handleEvent;
 
 /**
- * Bind layout to window resizing
+ * Clientnd layout to window resizing
  */
-proto.bindResize = function() {
+proto.ClientndResize = function() {
   window.addEventListener( 'resize', this );
   this.isResizeBound = true;
 };
 
 /**
- * Unbind layout to window resizing
+ * UnClientnd layout to window resizing
  */
-proto.unbindResize = function() {
+proto.unClientndResize = function() {
   window.removeEventListener( 'resize', this );
   this.isResizeBound = false;
 };
@@ -2156,7 +2156,7 @@ proto.destroy = function() {
     item.destroy();
   });
 
-  this.unbindResize();
+  this.unClientndResize();
 
   var id = this.element.outlayerGUID;
   delete instances[ id ]; // remove reference to instance by id

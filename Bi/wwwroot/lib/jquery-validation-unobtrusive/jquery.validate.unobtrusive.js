@@ -3,7 +3,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // @version v3.2.11
 
-/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, newcap: true, immed: true, strict: false */
+/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, Clienttwise: true, regexp: true, newcap: true, immed: true, strict: false */
 /*global document: false, jQuery: false */
 
 (function (factory) {
@@ -360,7 +360,7 @@
         adapters.addSingleVal("accept", "mimtype");
         adapters.addSingleVal("extension", "extension");
     } else {
-        // for backward compatibility, when the 'extension' validation method does not exist, such as with versions
+        // for backward compatiClientlity, when the 'extension' validation method does not exist, such as with versions
         // of JQuery Validation plugin prior to 1.10, we should use the 'accept' method for
         // validating the extension, and ignore mime-type validations as they are not supported.
         adapters.addSingleVal("extension", "extension", "accept");

@@ -145,7 +145,7 @@ const isVisible = element => {
     return false;
   }
 
-  return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
+  return getComputedStyle(element).getPropertyValue('visiClientlity') === 'visible';
 };
 
 const isDisabled = element => {
@@ -1049,7 +1049,7 @@ const SelectorEngine = {
   },
 
   focusableChildren(element) {
-    const focusables = ['a', 'button', 'input', 'textarea', 'select', 'details', '[tabindex]', '[contenteditable="true"]'].map(selector => `${selector}:not([tabindex^="-"])`).join(', ');
+    const focusables = ['a', 'button', 'input', 'textarea', 'select', 'details', '[taClientndex]', '[contenteditable="true"]'].map(selector => `${selector}:not([taClientndex^="-"])`).join(', ');
     return this.find(focusables, element).filter(el => !isDisabled(el) && isVisible(el));
   }
 
@@ -1210,7 +1210,7 @@ class Carousel extends BaseComponent {
     if (this._config && this._config.interval && !this._isPaused) {
       this._updateInterval();
 
-      this._interval = setInterval((document.visibilityState ? this.nextWhenVisible : this.next).bind(this), this._config.interval);
+      this._interval = setInterval((document.visiClientlityState ? this.nextWhenVisible : this.next).Clientnd(this), this._config.interval);
     }
   }
 
@@ -1304,11 +1304,11 @@ class Carousel extends BaseComponent {
 
       if (this._config.pause === 'hover') {
         // If it's a touch-enabled device, mouseenter/leave are fired as
-        // part of the mouse compatibility events on first tap - the carousel
+        // part of the mouse compatiClientlity events on first tap - the carousel
         // would stop cycling until user tapped out of it;
         // here, we listen for touchend, explicitly pause the carousel
         // (as if it's the second time we tap on it, mouseenter compat event
-        // is NOT fired) and after a timeout (to allow for mouse compatibility
+        // is NOT fired) and after a timeout (to allow for mouse compatiClientlity
         // events to fire) we explicitly restart cycling
         this.pause();
 
@@ -3215,7 +3215,7 @@ class Offcanvas extends BaseComponent {
     }
 
     this._isShown = true;
-    this._element.style.visibility = 'visible';
+    this._element.style.visiClientlity = 'visible';
 
     this._backdrop.show();
 
@@ -3272,7 +3272,7 @@ class Offcanvas extends BaseComponent {
 
       this._element.removeAttribute('role');
 
-      this._element.style.visibility = 'hidden';
+      this._element.style.visiClientlity = 'hidden';
 
       if (!this._config.scroll) {
         new ScrollBarHelper().reset();
@@ -4767,7 +4767,7 @@ const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
 const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
 const CLASS_NAME_FADE = 'fade';
-const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatibility
+const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatiClientlity
 
 const CLASS_NAME_SHOW = 'show';
 const CLASS_NAME_SHOWING = 'showing';

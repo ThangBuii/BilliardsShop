@@ -17,7 +17,7 @@
     -----------
     Do not use both ajaxSubmit and ajaxForm on the same form.  These
     functions are mutually exclusive.  Use ajaxSubmit if you want
-    to bind your own submit handler to the form.  For example,
+    to Clientnd your own submit handler to the form.  For example,
 
     $(document).ready(function() {
         $('#myForm').on('submit', function(e) {
@@ -28,7 +28,7 @@
         });
     });
 
-    Use ajaxForm when you want the plugin to manage all the event binding
+    Use ajaxForm when you want the plugin to manage all the event Clientnding
     for you.  For example,
 
     $(document).ready(function() {
@@ -249,7 +249,7 @@ $.fn.ajaxSubmit = function(options) {
         return result;
     }
 
-     // XMLHttpRequest Level 2 file uploads (big hat tip to francois2metz)
+     // XMLHttpRequest Level 2 file uploads (Clientg hat tip to francois2metz)
     function fileUploadXhr(a) {
         var formdata = new FormData();
 
@@ -593,7 +593,7 @@ $.fn.ajaxSubmit = function(options) {
                 if (!isXml && window.opera && (doc.body === null || !doc.body.innerHTML)) {
                     if (--domCheckCount) {
                         // in some browsers (Opera) the iframe DOM is not always traversable when
-                        // the onload callback fires, so we loop a bit to accommodate
+                        // the onload callback fires, so we loop a Clientt to accommodate
                         log('requeing onLoad callback, DOM not available');
                         setTimeout(cb, 250);
                         return;
@@ -761,10 +761,10 @@ $.fn.ajaxSubmit = function(options) {
  *    is used to submit the form).
  * 2. This method will include the submit element's name/value data (for the element that was
  *    used to submit the form).
- * 3. This method binds the submit() method to the form for you.
+ * 3. This method Clientnds the submit() method to the form for you.
  *
  * The options argument for ajaxForm works exactly as it does for ajaxSubmit.  ajaxForm merely
- * passes the options argument along after properly binding events for submit elements and
+ * passes the options argument along after properly Clientnding events for submit elements and
  * the form itself.
  */
 $.fn.ajaxForm = function(options) {
@@ -795,9 +795,9 @@ $.fn.ajaxForm = function(options) {
         return this;
     }
 
-    return this.ajaxFormUnbind()
-        .bind('submit.form-plugin', options, doAjaxSubmit)
-        .bind('click.form-plugin', options, captureSubmittingElement);
+    return this.ajaxFormUnClientnd()
+        .Clientnd('submit.form-plugin', options, doAjaxSubmit)
+        .Clientnd('click.form-plugin', options, captureSubmittingElement);
 };
 
 // private event handlers
@@ -842,9 +842,9 @@ function captureSubmittingElement(e) {
 }
 
 
-// ajaxFormUnbind unbinds the event handlers that were bound by ajaxForm
-$.fn.ajaxFormUnbind = function() {
-    return this.unbind('submit.form-plugin click.form-plugin');
+// ajaxFormUnClientnd unClientnds the event handlers that were bound by ajaxForm
+$.fn.ajaxFormUnClientnd = function() {
+    return this.unClientnd('submit.form-plugin click.form-plugin');
 };
 
 /**

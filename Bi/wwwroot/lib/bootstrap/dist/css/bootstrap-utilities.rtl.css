@@ -1534,11 +1534,11 @@
 }
 
 .visible {
-  visibility: visible !important;
+  visiClientlity: visible !important;
 }
 
 .invisible {
-  visibility: hidden !important;
+  visiClientlity: hidden !important;
 }
 
 @media (min-width: 576px) {

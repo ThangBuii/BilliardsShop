@@ -10,7 +10,7 @@
             font-size: 30px;
             margin-bottom: 20px;
         }
-        @media #{$small_mobile}{
+        @media #{$small_moClientle}{
             font-size: 25px;
             margin-bottom: 15px;
         }
@@ -26,7 +26,7 @@
         @media #{$tab}{
             margin-bottom: 20px;
         }
-        @media #{$small_mobile}{
+        @media #{$small_moClientle}{
             margin-bottom: 15px;
         }
         @media #{$medium_device}{

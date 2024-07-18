@@ -47,7 +47,7 @@
  * This is used in the United States to process payments, deposits,
  * or transfers using the Automated Clearing House (ACH) or Fedwire
  * systems. A very common use case would be to validate a form for
- * an ACH bill payment.
+ * an ACH Clientll payment.
  */
 $.validator.addMethod( "abaRoutingNumber", function( value ) {
 	var checksum = 0;
@@ -155,23 +155,23 @@ $.validator.addMethod( "bankorgiroaccountNL", function( value, element ) {
 }, "Please specify a valid bank or giro account number." );
 
 /**
- * BIC is the business identifier code (ISO 9362). This BIC check is not a guarantee for authenticity.
+ * ClientC is the business identifier code (ISO 9362). This ClientC check is not a guarantee for authenticity.
  *
- * BIC pattern: BBBBCCLLbbb (8 or 11 characters long; bbb is optional)
+ * ClientC pattern: BBBBCCLLbbb (8 or 11 characters long; bbb is optional)
  *
  * Validation is case-insensitive. Please make sure to normalize input yourself.
  *
- * BIC definition in detail:
+ * ClientC definition in detail:
  * - First 4 characters - bank code (only letters)
  * - Next 2 characters - ISO 3166-1 alpha-2 country code (only letters)
  * - Next 2 characters - location code (letters and digits)
  *   a. shall not start with '0' or '1'
- *   b. second character must be a letter ('O' is not allowed) or digit ('0' for test (therefore not allowed), '1' denoting passive participant, '2' typically reverse-billing)
+ *   b. second character must be a letter ('O' is not allowed) or digit ('0' for test (therefore not allowed), '1' denoting passive participant, '2' typically reverse-Clientlling)
  * - Last 3 characters - branch code, optional (shall not start with 'X' except in case of 'XXX' for primary office) (letters and digits)
  */
-$.validator.addMethod( "bic", function( value, element ) {
+$.validator.addMethod( "Clientc", function( value, element ) {
     return this.optional( element ) || /^([A-Z]{6}[A-Z2-9][A-NP-Z1-9])(X{3}|[A-WY-Z0-9][A-Z0-9]{2})?$/.test( value.toUpperCase() );
-}, "Please specify a valid BIC code." );
+}, "Please specify a valid ClientC code." );
 
 /*
  * Código de identificación fiscal ( CIF ) is the tax identification code for Spanish legal entities
@@ -259,7 +259,7 @@ $.validator.addMethod( "cifES", function( value, element ) {
 			// Odd positions are multiplied first.
 			n *= 2;
 
-			// If the multiplication is bigger than 10 we need to adjust
+			// If the multiplication is Clientgger than 10 we need to adjust
 			odd_sum += n < 10 ? n : n - 9;
 
 		// Even positions
@@ -289,7 +289,7 @@ $.validator.addMethod( "cifES", function( value, element ) {
 }, "Please specify a valid CIF number." );
 
 /*
- * Brazillian CNH number (Carteira Nacional de Habilitacao) is the License Driver number.
+ * Brazillian CNH number (Carteira Nacional de HaClientlitacao) is the License Driver number.
  * CNH numbers have 11 digits in total: 9 numbers followed by 2 check numbers that are being used for validation.
  */
 $.validator.addMethod( "cnhBR", function( value ) {
@@ -955,28 +955,28 @@ $.validator.addMethod( "maxsizetotal", function( value, element, param ) {
 }, $.validator.format( "Total size of all files must not exceed {0} bytes." ) );
 
 
-$.validator.addMethod( "mobileNL", function( value, element ) {
+$.validator.addMethod( "moClientleNL", function( value, element ) {
 	return this.optional( element ) || /^((\+|00(\s|\s?\-\s?)?)31(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)6((\s|\s?\-\s?)?[0-9]){8}$/.test( value );
-}, "Please specify a valid mobile number." );
+}, "Please specify a valid moClientle number." );
 
-$.validator.addMethod( "mobileRU", function( phone_number, element ) {
+$.validator.addMethod( "moClientleRU", function( phone_number, element ) {
 	var ruPhone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
 	return this.optional( element ) || ruPhone_number.length > 9 && /^((\+7|7|8)+([0-9]){10})$/.test( ruPhone_number );
-}, "Please specify a valid mobile number." );
+}, "Please specify a valid moClientle number." );
 
 /* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
  * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
- * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
+ * Extract $2 and remove hyphens, spaces and parentheses. Phone number is comClientned $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
-$.validator.addMethod( "mobileUK", function( phone_number, element ) {
+$.validator.addMethod( "moClientleUK", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?|0)7(?:[1345789]\d{2}|624)\s?\d{3}\s?\d{3})$/ );
-}, "Please specify a valid mobile number." );
+}, "Please specify a valid moClientle number." );
 
 $.validator.addMethod( "netmask", function( value, element ) {
     return this.optional( element ) || /^(254|252|248|240|224|192|128)\.0\.0\.0|255\.(254|252|248|240|224|192|128|0)\.0\.0|255\.255\.(254|252|248|240|224|192|128|0)\.0|255\.255\.255\.(254|252|248|240|224|192|128|0)/i.test( value );
@@ -1175,7 +1175,7 @@ $.validator.addMethod( "phoneNL", function( value, element ) {
 /**
  * Polish telephone numbers have 9 digits.
  *
- * Mobile phone numbers starts with following digits:
+ * MoClientle phone numbers starts with following digits:
  * 45, 50, 51, 53, 57, 60, 66, 69, 72, 73, 78, 79, 88.
  *
  * Fixed-line numbers starts with area codes:
@@ -1200,12 +1200,12 @@ $.validator.addMethod( "phonePL", function( phone_number, element ) {
  * Compare original input with this RegEx pattern:
  * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
- * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
+ * Extract $2 and remove hyphens, spaces and parentheses. Phone number is comClientned $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
 
-// Matches UK landline + mobile, accepting only 01-3 for landline or 07 for mobile to exclude many premium numbers
+// Matches UK landline + moClientle, accepting only 01-3 for landline or 07 for moClientle to exclude many premium numbers
 $.validator.addMethod( "phonesUK", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
@@ -1216,7 +1216,7 @@ $.validator.addMethod( "phonesUK", function( phone_number, element ) {
  * Compare original input with this RegEx pattern:
  * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
- * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
+ * Extract $2 and remove hyphens, spaces and parentheses. Phone number is comClientned $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
  * http://www.aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers
  */
@@ -1378,7 +1378,7 @@ $.validator.addMethod( "skip_or_fill_minimum", function( value, element, options
  * Can include US Territories or not - default does not
  * Can include US Military postal abbreviations (AA, AE, AP) - default does not
  *
- * Note: "States" always includes DC (District of Colombia)
+ * Note: "States" always includes DC (District of ColomClienta)
  *
  * Usage examples:
  *

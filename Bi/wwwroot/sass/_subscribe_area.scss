@@ -47,7 +47,7 @@
         
     }
     
-    @media #{$small_mobile}{
+    @media #{$small_moClientle}{
         .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control, .input-group>.form-control-plaintext {
             position: relative;
             -ms-flex: 1 1 auto;
@@ -65,7 +65,7 @@
             margin-left: 0;
         }
     }
-    @media #{$large_mobile}{
+    @media #{$large_moClientle}{
     
     }
     

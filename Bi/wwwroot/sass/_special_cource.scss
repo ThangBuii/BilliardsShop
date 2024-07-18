@@ -1,10 +1,10 @@
 /********** special_cource_css************/
 .special_cource {
-    @media #{$small_mobile} {
+    @media #{$small_moClientle} {
         padding: 70px 0px 50px;
     }
 
-    @media #{$large_mobile} {
+    @media #{$large_moClientle} {
         padding: 70px 0px 50px;
     }
 
@@ -16,7 +16,7 @@
 
     .single_special_cource {
 
-        @media #{$small_mobile} {
+        @media #{$small_moClientle} {
             margin-bottom: 20px;
 
             .special_img {
@@ -25,7 +25,7 @@
 
         }
 
-        @media #{$large_mobile} {
+        @media #{$large_moClientle} {
             margin-bottom: 20px;
 
             .special_img {
@@ -44,11 +44,11 @@
             border: 1px solid $border_color;
             border-top: 0px;
 
-            @media #{$small_mobile} {
+            @media #{$small_moClientle} {
                 padding: 20px 15px 15px;
             }
 
-            @media #{$large_mobile} {
+            @media #{$large_moClientle} {
                 padding: 20px 15px 15px;
             }
 
@@ -73,12 +73,12 @@
                 &:hover{
                     color: $btn_bg;
                 }
-                @media #{$small_mobile} {
+                @media #{$small_moClientle} {
                     margin-top: 15px;
                     margin-bottom: 10px;
                 }
 
-                @media #{$large_mobile} {
+                @media #{$large_moClientle} {
                     margin-top: 15px;
                     margin-bottom: 10px;
                     font-size: 18px;
@@ -99,7 +99,7 @@
                 .author_img {
                     position: relative;
                     padding-left: 60px;
-                    @media #{$large_mobile}{
+                    @media #{$large_moClientle}{
                         padding-left: 53px;
                     }
                     @media #{$tab_device}{
@@ -115,7 +115,7 @@
                     p {
                         color: $author_text_color;
 
-                        @media #{$large_mobile} {
+                        @media #{$large_moClientle} {
                             font-size: 12px;
                         }
 
@@ -131,7 +131,7 @@
                             color: $heading_color;
                             font-size: 16px;
                             font-weight: 500;
-                            @media #{$large_mobile} {
+                            @media #{$large_moClientle} {
                                 font-size: 14px;
                             }
                         }
@@ -144,7 +144,7 @@
                     .rating {
                         a {
                             margin-left: 5px;
-                            @media #{$large_mobile}{
+                            @media #{$large_moClientle}{
                                 margin-left: 0px;
                             }
                             @media #{$tab_device}{

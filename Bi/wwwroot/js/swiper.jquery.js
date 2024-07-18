@@ -1,6 +1,6 @@
 /**
  * Swiper 3.4.2
- * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * Most modern moClientle touch slider and framework with hardware accelerated transitions
  * 
  * http://www.idangero.us/swiper/
  * 
@@ -145,7 +145,7 @@
             prevButton: null,
             // Progress
             watchSlidesProgress: false,
-            watchSlidesVisibility: false,
+            watchSlidesVisiClientlity: false,
             // Cursor
             grabCursor: false,
             // Clicks
@@ -209,7 +209,7 @@
             // Observer
             observer: false,
             observeParents: false,
-            // Accessibility
+            // AccessiClientlity
             a11y: false,
             prevSlideMessage: 'Previous slide',
             nextSlideMessage: 'Next slide',
@@ -381,7 +381,7 @@
             s.classNames.push(s.params.containerModifierClass + 'autoheight');
         }
         // Enable slides progress when required
-        if (s.params.parallax || s.params.watchSlidesVisibility) {
+        if (s.params.parallax || s.params.watchSlidesVisiClientlity) {
             s.params.watchSlidesProgress = true;
         }
         // Max resistance when touchReleaseOnEdges
@@ -546,9 +546,9 @@
           ===========================*/
         s.setGrabCursor = function(moving) {
             s.container[0].style.cursor = 'move';
-            s.container[0].style.cursor = moving ? '-webkit-grabbing' : '-webkit-grab';
-            s.container[0].style.cursor = moving ? '-moz-grabbin' : '-moz-grab';
-            s.container[0].style.cursor = moving ? 'grabbing': 'grab';
+            s.container[0].style.cursor = moving ? '-webkit-grabClientng' : '-webkit-grab';
+            s.container[0].style.cursor = moving ? '-moz-grabClientn' : '-moz-grab';
+            s.container[0].style.cursor = moving ? 'grabClientng': 'grab';
         };
         s.unsetGrabCursor = function () {
             s.container[0].style.cursor = '';
@@ -968,7 +968,7 @@
             for (var i = 0; i < s.slides.length; i++) {
                 var slide = s.slides[i];
                 var slideProgress = (offsetCenter + (s.params.centeredSlides ? s.minTranslate() : 0) - slide.swiperSlideOffset) / (slide.swiperSlideSize + s.params.spaceBetween);
-                if (s.params.watchSlidesVisibility) {
+                if (s.params.watchSlidesVisiClientlity) {
                     var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
                     var slideAfter = slideBefore + s.slidesSizesGrid[i];
                     var isVisible =
@@ -2856,7 +2856,7 @@
                     slidesPerView = 0;
                 }
                 if (!s.lazy.initialImageLoaded) s.lazy.initialImageLoaded = true;
-                if (s.params.watchSlidesVisibility) {
+                if (s.params.watchSlidesVisiClientlity) {
                     s.wrapper.children('.' + s.params.slideVisibleClass).each(function () {
                         s.lazy.loadImageInSlide($(this).index());
                     });
@@ -3102,7 +3102,7 @@
           ===========================*/
         s.controller = {
             LinearSpline: function (x, y) {
-                var binarySearch = (function() {
+                var ClientnarySearch = (function() {
                     var maxIndex, minIndex, guess;
                     return function(array, val) {
                         minIndex = -1;
@@ -3129,7 +3129,7 @@
                     if (!x2) return 0;
         
                     // Get the indexes of x1 and x3 (the array indexes before and after given x2):
-                    i3 = binarySearch(this.x, x2);
+                    i3 = ClientnarySearch(this.x, x2);
                     i1 = i3 - 1;
         
                     // We have our indexes i1 & i3, so we can calculate already:
@@ -3524,7 +3524,7 @@
          *
          * The basics is that it includes a unit, deltaMode (pixels, lines, pages), and
          * deltaX, deltaY and deltaZ.  Some browsers provide other values to maintain
-         * backward compatibility with older events.  Those other values help us
+         * backward compatiClientlity with older events.  Those other values help us
          * better normalize spin speed.  Example of what the browsers provide:
          *
          *                          | event.wheelDelta | event.detail
@@ -3604,7 +3604,7 @@
         }
         if (s.params.mousewheelControl) {
             /**
-             * The best combination if you prefer spinX + spinY normalization.  It favors
+             * The best comClientnation if you prefer spinX + spinY normalization.  It favors
              * the older DOMMouseScroll for Firefox, as FF does not include wheelDelta with
              * 'wheel' event, making spin speed determination impossible.
              */
@@ -4236,10 +4236,10 @@
         };
         
 
-        // Accessibility tools
+        // AccessiClientlity tools
         s.a11y = {
             makeFocusable: function ($el) {
-                $el.attr('tabIndex', '0');
+                $el.attr('taClientndex', '0');
                 return $el;
             },
             addRole: function ($el, role) {
@@ -4296,7 +4296,7 @@
                 notification.html(message);
             },
             init: function () {
-                // Setup accessibility
+                // Setup accessiClientlity
                 if (s.params.nextButton && s.nextButton && s.nextButton.length > 0) {
                     s.a11y.makeFocusable(s.nextButton);
                     s.a11y.addRole(s.nextButton, 'button');
