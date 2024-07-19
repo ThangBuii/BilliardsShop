@@ -1,23 +1,21 @@
-﻿using Business.Implements;
-using Business.Interfaces;
+﻿using Business.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Share.DTO.BrandDTO;
-using System.Reflection.Metadata;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class CategoryController : ControllerBase
     {
-        private readonly IBrandService _brandService;
+        private readonly ICategoryService _categoryService;
         private static string MESSAGE = "An unexpected error occurred. Please try again later.";
 
-        public BrandController(IBrandService brandService)
+        public CategoryController(ICategoryService categoryService)
         {
-            _brandService = brandService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -25,7 +23,7 @@ namespace API.Controllers
         {
             try
             {
-                var list = _brandService.GetAll();
+                var list = _categoryService.GetAll();
                 return Ok(list);
             }
             catch (Exception ex)
@@ -36,16 +34,16 @@ namespace API.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult Post([FromBody] AddBrandRequestDTO request)
+        public IActionResult Post([FromBody] AddCategoryRequestDTO request)
         {
             try
             {
-                var brand = _brandService.AddBrand(request);
-                if (brand == null)
+                var category = _categoryService.AddCategory(request);
+                if (category == null)
                 {
                     return BadRequest();
                 }
-                return Ok(brand);
+                return Ok(category);
             }
             catch (Exception ex)
             {
@@ -53,14 +51,14 @@ namespace API.Controllers
             }
         }
 
-        [HttpDelete("/{id}")]
+        [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             try
             {
-                var boolean = _brandService.DeleteBrand(id);
-                if (!boolean)
+                var success = _categoryService.DeleteCategory(id);
+                if (!success)
                 {
                     return StatusCode(500, new { message = MESSAGE });
                 }
@@ -74,12 +72,12 @@ namespace API.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public IActionResult Put([FromBody] EditBrandRequestDTO request)
+        public IActionResult Put([FromBody] EditCategoryRequestDTO request)
         {
             try
             {
-                var boolean = _brandService.UpdateBrand(request);
-                if (!boolean)
+                var success = _categoryService.UpdateCategory(request);
+                if (!success)
                 {
                     return StatusCode(500, new { message = MESSAGE });
                 }

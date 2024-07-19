@@ -67,7 +67,8 @@ namespace DataLayer.Implements
 
             try
             {
-                _context.Attach(productImage).State = EntityState.Modified;
+                _context.Entry(originalProductImage).CurrentValues.SetValues(productImage);
+
                 _context.SaveChanges();
                 return true;
             }

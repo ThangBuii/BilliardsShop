@@ -81,7 +81,8 @@ namespace DataLayer.Implements
 
             try
             {
-                _context.Attach(product).State = EntityState.Modified;
+                _context.Entry(originalProduct).CurrentValues.SetValues(product);
+
                 _context.SaveChanges();
                 return true;
             }
