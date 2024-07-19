@@ -9,10 +9,11 @@ namespace DataLayer.Interfaces
 {
     public interface IUserRepository
     {
-        User AddUser(User user);
+        public User AddUser(User user);
         User GetUserById(int id);
         List<User> GetAllUsers();
         bool UpdateUser(User user);
         bool DeleteUser(int id);
+        public User Login(string email,string password);
     }
 }

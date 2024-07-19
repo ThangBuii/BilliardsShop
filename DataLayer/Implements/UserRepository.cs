@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Implements
 {
-    public class BrandRepository : IBrandRepository
+    public class UserRepository : IUserRepository
     {
         private readonly PRN231_PROJECT_2Context _context;
 
-        public BrandRepository(PRN231_PROJECT_2Context context)
+        public UserRepository(PRN231_PROJECT_2Context context)
         {
             _context = context;
         }
 
-        public Brand AddBrand(Brand brand)
+        public User AddUser(User user)
         {
             try
             {
-                _context.Brands.Add(brand);
+                _context.Users.Add(user);
                 _context.SaveChanges();
-                return brand;
+                return user;
             }
             catch (Exception ex)
             {
@@ -33,13 +33,13 @@ namespace DataLayer.Implements
             }
         }
 
-        public bool DeleteBrand(int id)
+        public bool DeleteUser(int id)
         {
-            var brand = GetBrandById(id);
-            if (brand == null) return false;
+            var user = GetUserById(id);
+            if (user == null) return false;
             try
             {
-                _context.Brands.Remove(brand);
+                _context.Users.Remove(user);
                 _context.SaveChanges();
                 return true;
             }
@@ -48,33 +48,39 @@ namespace DataLayer.Implements
                 Console.WriteLine(ex.Message);
                 return false;
             }
-
         }
 
-        public List<Brand> GetAllBrands()
+        public List<User> GetAllUsers()
         {
-            var list = _context.Brands.ToList();
-            return list;
+            return _context.Users.ToList();
         }
 
-        public Brand GetBrandById(int id)
+        public User GetUserById(int id)
         {
-            var brand = _context.Brands.FirstOrDefault(b => b.Id == id);
-            if(brand == null)
+            return _context.Users.FirstOrDefault(u => u.Id == id);
+        }
+
+        public User Login(string email, string password)
+        {
+            return _context.Users.FirstOrDefault(u => u.Account.Equals(email) && u.Password.Equals(password));
+        }
+
+        public bool UpdateUser(User user)
+        {
+            var originalUser = GetUserById(user.Id);
+            if (originalUser == null) return false;
+
+            try
             {
-                return null;
+                _context.Attach(user).State = EntityState.Modified;
+                _context.SaveChanges();
+                return true;
             }
-            return brand;
-        }
-
-        public bool UpdateBrand(Brand brand)
-        {
-            var originalBrand = GetBrandById(brand.Id);
-            if(originalBrand == null) return false;
-            _context.Attach(brand).State = EntityState.Modified;
-            _context.SaveChanges();
-
-            return false;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
 }
