@@ -17,7 +17,7 @@ namespace DataLayer.Interfaces
       
         public List<Brand> GetAllBrands();
 
-        public Brand UpdateBrand(Brand brand);
+        public bool UpdateBrand(Brand brand);
 
         public bool DeleteBrand(int id);
     }
