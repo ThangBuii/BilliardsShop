@@ -21,7 +21,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="" alt="">
+                <img src="img/BilliardRegister.jpg" alt="">
             </div>
 
             <span class="logo_name">Admin</span>
@@ -209,6 +209,90 @@
                 e.preventDefault();
                 $.ajax({
                     url: '/Admin?handler=CategoryPartialEdit',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-add-order', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=OrderPartialCreate',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-edit-order', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=OrderPartialEdit',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-add-user', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=UserPartialCreate',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-edit-user', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=UserPartialEdit',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-add-product', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=ProductPartialCreate',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-edit-product', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=ProductPartialEdit',
                     type: 'GET',
                     success: function (data) {
                         $('.activity').html(data);

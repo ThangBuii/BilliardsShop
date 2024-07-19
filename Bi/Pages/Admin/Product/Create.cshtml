@@ -1,0 +1,127 @@
+﻿@page
+@model Client.Pages.Admin.Product.CreateModel
+@{
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <h1>Create Product</h1>
+    <main class="container">
+        <form method='post'>
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <div class="mb-3 row">
+                    <label for="nim" class="col-sm-2 col-form-label">Id</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="id">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-10">
+                        <select class="form-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Brand</label>
+                    <div class="col-sm-10">
+                        <select class="form-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Price</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="price">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">UnitInstock</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="unitInstock">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">IsAvailable</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="isAvailable">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="description">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">ShortDescription</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="shortDescription">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Weight</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="weight">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">EraserSize</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="eraserSize">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">ButtLength</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="buttLength">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">ShaftLength</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="shaftLength">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Grip</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="grip">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Product Image</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="productImage" accept="image/*" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="jurusan" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">Create</button></div>
+                </div>
+            </div>
+        </form>
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
