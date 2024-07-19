@@ -71,10 +71,11 @@ namespace DataLayer.Implements
         {
             var originalBrand = GetBrandById(brand.Id);
             if(originalBrand == null) return false;
-            _context.Attach(brand).State = EntityState.Modified;
+            _context.Entry(originalBrand).CurrentValues.SetValues(brand);
+
             _context.SaveChanges();
 
-            return false;
+            return true;
         }
     }
 }

@@ -67,7 +67,8 @@ namespace DataLayer.Implements
 
             try
             {
-                _context.Attach(category).State = EntityState.Modified;
+                _context.Entry(originalCategory).CurrentValues.SetValues(category);
+
                 _context.SaveChanges();
                 return true;
             }

@@ -72,7 +72,8 @@ namespace DataLayer.Implements
 
             try
             {
-                _context.Attach(user).State = EntityState.Modified;
+                _context.Entry(originalUser).CurrentValues.SetValues(user);
+
                 _context.SaveChanges();
                 return true;
             }
