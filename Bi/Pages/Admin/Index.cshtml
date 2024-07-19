@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css" asp-append-version="true">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Admin Dashboard Panel</title>
 </head>
@@ -24,37 +24,37 @@
                 <img src="" alt="">
             </div>
 
-            <span class="logo_name">Admin Billiard Shop</span>
+            <span class="logo_name">Admin</span>
         </div>
 
         <div class="menu-items">
             <ul class="nav-links">
                 <li>
-                    <a href="#">
+                    <a href="" data-url="/Admin?handler=BrandPartial" class="nav-link">
                         <i class="uil uil-pricetag-alt"></i>
                         <span class="link-name">Brand</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-url="/Admin?handler=CategoryPartial" class="nav-link">
                         <i class="uil uil-archive"></i>
                         <span class="link-name">Category</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-url="/Admin?handler=UserPartial" class="nav-link">
                         <i class="uil uil-user"></i>
                         <span class="link-name">User</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-url="/Admin?handler=OrderPartial" class="nav-link">
                         <i class="uil uil-shopping-basket"></i>
                         <span class="link-name">Order</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-url="/Admin?handler=ProductPartial" class="nav-link">
                         <i class="uil uil-transaction"></i>
                         <span class="link-name">Product</span>
                     </a>
@@ -77,7 +77,11 @@
 
         <div class="dash-content">
 
-            <div class="activity">
+            <div id="content-placeholder">
+                <!-- Partial views load here -->
+            </div>
+
+            <div class="activity" id="activity-placeholder">
                 <div class="title">
                     <i class="uil uil-clock-three"></i>
                     <span class="text">Recent Activity</span>
@@ -138,6 +142,85 @@
             </div>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.nav-link').click(function (e) {
+                e.preventDefault();
+                var url = $(this).data('url');
+                console.log("Request URL:", url); // Log URL to check
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data); // Change to `#content-placeholder` if the partial is to be loaded here
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the partial view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-add-brand', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=BrandPartialCreate',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data); 
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-edit-brand', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=BrandPartialEdit',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-add-category', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=CategoryPartialCreate',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-edit-category', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/Admin?handler=CategoryPartialEdit',
+                    type: 'GET',
+                    success: function (data) {
+                        $('.activity').html(data);
+                    },
+                    error: function () {
+                        alert("An error occurred while loading the Create view.");
+                    }
+                });
+            });
+        });
+
+    </script>
 
 </body>
 </html>
