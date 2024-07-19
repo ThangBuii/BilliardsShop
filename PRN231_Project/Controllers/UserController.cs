@@ -58,6 +58,7 @@ namespace API.Controllers
                 return Conflict();
             }
         }
+        
 
         private string GenerateJwtToken(User user)
         {
