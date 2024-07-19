@@ -1,5 +1,5 @@
 ﻿@page
-@model Client.Pages.Admin.Brand.UpdateModel
+@model Client.Pages.Admin.User.CreateModel
 @{
 }
 <!doctype html>
@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="bg-light">
-    <h1>Edit Brand</h1>
+    <h1>Create User</h1>
     <main class="container">
         <form method='post'>
             <div class="my-3 p-3 bg-body rounded shadow-sm">
@@ -28,8 +28,20 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="email">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="nama" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                </div>
+                <div class="mb-3 row">
                     <label for="jurusan" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">Update</button></div>
+                    <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">Create</button></div>
                 </div>
             </div>
         </form>
