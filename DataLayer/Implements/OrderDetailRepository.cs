@@ -1,5 +1,6 @@
 ﻿using DataLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Share.DTO.OrderDetailDTO;
 using Share.Models;
 using System;
 using System.Collections.Generic;
@@ -43,9 +44,22 @@ namespace DataLayer.Implements
             return _context.OrderDetails.FirstOrDefault(od => od.Id == id);
         }
 
-        public List<OrderDetail> GetOrderDetailsByOrderId(int orderId)
+        public List<OrderDetailListResponseDTO> GetOrderDetailsByOrderId(int orderId)
         {
-            return _context.OrderDetails.Where(od => od.OrderId == orderId).ToList();
+            var list = _context.OrderDetails.Include(od => od.Product)
+                                                .ThenInclude(o => o.ProductDetail)
+                                            .Include(od => od.Product)
+                                                .ThenInclude(p => p.ProductImages).Select(od => new OrderDetailListResponseDTO
+            {
+                Id = od.Id,
+                OrderId = od.OrderId,
+                ProductName = od.Product.ProductDetail.Name,
+                Quantity = od.Quantity,
+                UnitPrice = od.UnitPrice,
+                TotalPrice = od.Quantity * od.UnitPrice,
+                ImgSource = od.Product.ProductImages.FirstOrDefault(pi => pi.IsMainImage).Source
+            }).Where(o => o.OrderId == orderId).ToList();
+            return list;
         }
 
         public bool UpdateOrderDetail(OrderDetail orderDetail)

@@ -1,6 +1,7 @@
 ﻿using Business.Interfaces;
 using DataLayer.Interfaces;
 using Share.DTO.BrandDTO;
+using Share.DTO.OrderDetailDTO;
 using Share.DTO.OrderDTO;
 using Share.Models;
 using System;
@@ -36,7 +37,7 @@ namespace Business.Implements
             return _orderDetailRepository.GetAllOrderDetails();
         }
 
-        public List<OrderDetail> GetOrderByOrderId(int orderId)
+        public List<OrderDetailListResponseDTO> GetOrderByOrderId(int orderId)
         {
             return _orderDetailRepository.GetOrderDetailsByOrderId(orderId);
         }

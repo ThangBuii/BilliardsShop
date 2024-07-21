@@ -1,4 +1,5 @@
-﻿using Share.Models;
+﻿using Share.DTO.OrderDetailDTO;
+using Share.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DataLayer.Interfaces
     {
         OrderDetail AddOrderDetail(OrderDetail orderDetail);
         OrderDetail GetOrderDetailById(int id);
-        List<OrderDetail> GetOrderDetailsByOrderId(int orderId);
+        List<OrderDetailListResponseDTO> GetOrderDetailsByOrderId(int orderId);
         List<OrderDetail> GetAllOrderDetails();
         bool UpdateOrderDetail(OrderDetail orderDetail);
     }
