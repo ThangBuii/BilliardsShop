@@ -1,0 +1,40 @@
+﻿@page
+@model Client.Pages.Account.Order.IndexModel
+@{
+}
+<body class="bg-light">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="container">
+            <div class="card p-4 shadow">
+                <h1 class="mb-4">Order</h1>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2">Date</th>
+                                <th class="col-md-2">Total</th>
+                                <th class="col-md-3">Shipping Address</th>
+                                <th class="col-md-2">Note</th>
+                                <th class="col-md-2">Status</th>
+                                <th class="col-md-1">Total Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1/1/2002</td>
+                                <td>1001</td>
+                                <td>1234 </td>
+                                <td></td>
+                                <td>Shipped</td>
+                                <td>10</td>
+                                <td><a href="/Account/Order/OrderDetail">Detail</a></td>
+                            </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
