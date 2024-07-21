@@ -1,0 +1,31 @@
+﻿@page
+@model Client.Pages.Account.Information.EditModel
+@{
+}
+<body class="bg-light">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="container">
+            <div class="card p-4 shadow">
+                <h1 class="mb-4">Edit Information</h1>
+
+                <form method="post">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="name" class="form-label">Name:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" id="name" name="Name" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12 text-end">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a href="/Account/Information/Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
