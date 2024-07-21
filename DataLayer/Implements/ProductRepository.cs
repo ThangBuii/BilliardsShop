@@ -1,5 +1,6 @@
 ﻿using DataLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Share.DTO.ProductDTO;
 using Share.Models;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace DataLayer.Implements
 
         public bool DeleteProduct(int id)
         {
-            var product = GetProductById(id);
+            var product = GetProductById1(id);
             if (product == null) return false;
             try
             {
@@ -54,29 +55,39 @@ namespace DataLayer.Implements
             }
         }
 
-        public List<Product> GetAllProducts()
+       
+
+        public List<Product> GetAllProductsAdmin()
         {
             return _context.Products.ToList();
         }
 
-        public Product GetProductById(int id)
+        private Product GetProductById1(int id)
         {
             return _context.Products.FirstOrDefault(p => p.Id == id);
         }
 
-        public List<Product> GetProductsByBrand(int brandId)
+        
+
+        public List<ProductListResponseDTO> GetProductsByBrandAndCate(int brandId, int categoryId)
         {
-            return _context.Products.Where(p => p.BrandId == brandId).ToList();
+           var list = _context.Products.Include(p => p.ProductDetail).Include(p => p.ProductImages).Select(p => new ProductListResponseDTO
+           {
+               Id = p.Id,
+               ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
+               IsAvailable = p.IsAvailable,
+               Name = p.ProductDetail.Name,
+               BrandId = p.BrandId,
+               CategoryId = p.CategoryId,
+           }).Where(p => p.BrandId == brandId && p.CategoryId == categoryId).ToList();
+            return list;
         }
 
-        public List<Product> GetProductsByCategory(int categoryId)
-        {
-            return _context.Products.Where(p => p.CategoryId == categoryId).ToList();
-        }
+       
 
         public bool UpdateProduct(Product product)
         {
-            var originalProduct = GetProductById(product.Id);
+            var originalProduct = GetProductById1(product.Id);
             if (originalProduct == null) return false;
 
             try
@@ -91,6 +102,71 @@ namespace DataLayer.Implements
                 Console.WriteLine(ex.Message);
                 return false;
             }
+        }
+
+        public List<ProductListResponseDTO> GetAllProducts()
+        {
+            var list = _context.Products.Include(p => p.ProductDetail).Include(p => p.ProductImages).Select(p => new ProductListResponseDTO
+            {
+                Id = p.Id,
+                ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
+                IsAvailable = p.IsAvailable,
+                Name = p.ProductDetail.Name,
+                BrandId = p.BrandId,
+                CategoryId = p.CategoryId,
+            }).ToList();
+            return list;
+        }
+
+        public ProductDetailResponseDTO GetProductById(int id)
+        {
+            var product =  _context.Products.Include(p => p.ProductDetail).Include(p => p.ProductDetail).Include(p => p.Category).Include(p => p.Brand).Select(p => new ProductDetailResponseDTO
+            {
+                Id = p.Id,
+                BrandName = p.Brand.Name,
+                Name = p.ProductDetail.Name,
+                ButtLength = p.ProductDetail.ButtLength,
+                CategoryName = p.Category.Name,
+                Description = p.ProductDetail.Description,
+                EraserSize = p.ProductDetail.EraserSize,
+                Grip = p.ProductDetail.Grip,
+                IsAvailable = p.IsAvailable,
+                Price = p.ProductDetail.Price,
+                ShaftLength = p.ProductDetail.ShaftLength,
+                ShortDescription = p.ProductDetail.ShortDescription,
+                UnitsInStock = p.UnitsInStock,
+                Weight = p.ProductDetail.Weight,
+                ImgSource = p.ProductImages.Select(pi => pi.Source).ToList(),
+            }).FirstOrDefault(p => p.Id == id);
+            return product;
+        }
+
+        public List<ProductListResponseDTO> GetProductsByBrand(int brandId)
+        {
+            var list = _context.Products.Include(p => p.ProductDetail).Include(p => p.ProductImages).Select(p => new ProductListResponseDTO
+            {
+                Id = p.Id,
+                ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
+                IsAvailable = p.IsAvailable,
+                Name = p.ProductDetail.Name,
+                BrandId = p.BrandId,
+                CategoryId = p.CategoryId,
+            }).Where(p => p.BrandId == brandId).ToList();
+            return list;
+        }
+
+        public List<ProductListResponseDTO> GetProductsByCategory(int categoryId)
+        {
+            var list = _context.Products.Include(p => p.ProductDetail).Include(p => p.ProductImages).Select(p => new ProductListResponseDTO
+            {
+                Id = p.Id,
+                ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
+                IsAvailable = p.IsAvailable,
+                Name = p.ProductDetail.Name,
+                BrandId = p.BrandId,
+                CategoryId = p.CategoryId,
+            }).Where(p => p.CategoryId == categoryId).ToList();
+            return list;
         }
     }
 
