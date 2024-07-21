@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Share;
+using Share.DTO.OrderDetailDTO;
 using Share.DTO.OrderDTO;
 using Share.Models;
 
@@ -17,6 +18,6 @@ namespace Business.Interfaces
 
         public bool Update(UpdateOrderDetailDTO request);
 
-        public List<OrderDetail> GetOrderByOrderId(int orderId);
+        public List<OrderDetailListResponseDTO> GetOrderByOrderId(int orderId);
     }
 }
