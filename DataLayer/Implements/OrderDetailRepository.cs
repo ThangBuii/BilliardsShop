@@ -55,7 +55,8 @@ namespace DataLayer.Implements
 
             try
             {
-                _context.Attach(orderDetail).State = EntityState.Modified;
+                _context.Entry(originalOrderDetail).CurrentValues.SetValues(orderDetail);
+
                 _context.SaveChanges();
                 return true;
             }
