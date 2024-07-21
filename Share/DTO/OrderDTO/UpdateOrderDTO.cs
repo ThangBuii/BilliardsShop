@@ -12,6 +12,7 @@ namespace Share.DTO.OrderDTO
         public DateTime Date { get; set; }
         public double Total { get; set; }
         public string ShippingAddress { get; set; } = null!;
+        public string Note { get; set; } = null!;
         public int Status { get; set; }
         public int UserId { get; set; }
     }
