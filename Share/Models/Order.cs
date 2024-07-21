@@ -14,10 +14,11 @@ namespace Share.Models
         public DateTime Date { get; set; }
         public double Total { get; set; }
         public string ShippingAddress { get; set; } = null!;
+        public string Note { get; set; } = null!;
         public int Status { get; set; }
-        public int UserIdbigint { get; set; }
+        public int UserId { get; set; }
 
-        public virtual User UserIdbigintNavigation { get; set; } = null!;
+        public virtual User User { get; set; } = null!;
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

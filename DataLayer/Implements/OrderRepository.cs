@@ -83,7 +83,7 @@ namespace DataLayer.Implements
 
         public List<Order> GetOrdersByUserId(int userId)
         {
-            var orders = _context.Orders.Where(o => o.UserIdbigint == userId);
+            var orders = _context.Orders.Where(o => o.UserId == userId);
             return orders.ToList();
         }
 

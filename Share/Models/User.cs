@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Share.Models
@@ -13,9 +12,10 @@ namespace Share.Models
 
         public int Id { get; set; }
         public string Name { get; set; } = null!;
-        public string Account { get; set; } = null!;
+        public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public int Role { get; set; }
+        public bool IsEnabled { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }
