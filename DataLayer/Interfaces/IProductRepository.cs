@@ -1,4 +1,5 @@
-﻿using Share.Models;
+﻿using Share.DTO.ProductDTO;
+using Share.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,13 @@ namespace DataLayer.Interfaces
     public interface IProductRepository
     {
         Product AddProduct(Product product);
-        Product GetProductById(int id);
-        List<Product> GetAllProducts();
-        List<Product> GetProductsByCategory(int categoryId);
-        List<Product> GetProductsByBrand(int brandId);
+        ProductDetailResponseDTO GetProductById(int id);
+        List<Product> GetAllProductsAdmin();
+        List<ProductListResponseDTO> GetProductsByCategory(int categoryId);
+        List<ProductListResponseDTO> GetProductsByBrand(int brandId);
+        List<ProductListResponseDTO> GetProductsByBrandAndCate(int brandId,int categoryId);
+        List<ProductListResponseDTO> GetAllProducts();
+
         bool UpdateProduct(Product product);
         bool DeleteProduct(int id);
     }
