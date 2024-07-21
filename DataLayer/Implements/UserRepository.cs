@@ -62,7 +62,7 @@ namespace DataLayer.Implements
 
         public User Login(string email, string password)
         {
-            return _context.Users.FirstOrDefault(u => u.Account.Equals(email) && u.Password.Equals(password));
+            return _context.Users.FirstOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password));
         }
 
         public bool UpdateUser(User user)

@@ -28,7 +28,7 @@ namespace Business.Implements
                 ShippingAddress = request.ShippingAddress,
                 Status = request.Status,
                 Total = request.Total,
-                UserIdbigint = request.UserIdbigint,
+                UserId = request.UserId,
             });
         }
 
@@ -57,7 +57,7 @@ namespace Business.Implements
                 ShippingAddress = request.ShippingAddress,
                 Status = request.Status,
                 Total = request.Total,
-                UserIdbigint = request.UserIdbigint,
+                UserId = request.UserId,
                 Id = request.Id,
             });
         }

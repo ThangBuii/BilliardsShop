@@ -25,7 +25,7 @@ namespace Business.Implements
             {
                 Id = u.Id,
                 Name = u.Name,
-                Account = u.Account,
+                Account = u.Email,
             });
             return list.ToList();
         }
@@ -41,7 +41,7 @@ namespace Business.Implements
             var user = new User
             {
                 Name = request.Name,
-                Account = request.Email,
+                Email = request.Email,
                 Password = request.Password,
                 Role = 2
             };

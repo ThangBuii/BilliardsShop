@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
@@ -61,13 +60,15 @@ namespace DataLayer
 
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
+                entity.Property(e => e.Note).HasMaxLength(255);
+
                 entity.Property(e => e.ShippingAddress).HasMaxLength(255);
 
-                entity.HasOne(d => d.UserIdbigintNavigation)
+                entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.UserIdbigint)
+                    .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("order_useridbigint_foreign");
+                    .HasConstraintName("order_userid_foreign");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
@@ -107,7 +108,7 @@ namespace DataLayer
             modelBuilder.Entity<ProductDetail>(entity =>
             {
                 entity.HasKey(e => e.ProductId)
-                    .HasName("PK__ProductD__B40CC6CD1061AA18");
+                    .HasName("PK__ProductD__B40CC6CD25A5C544");
 
                 entity.ToTable("ProductDetail");
 
@@ -145,7 +146,7 @@ namespace DataLayer
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.Account)
+                entity.Property(e => e.Email)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 

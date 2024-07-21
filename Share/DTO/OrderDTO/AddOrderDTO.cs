@@ -12,6 +12,6 @@ namespace Share.DTO.OrderDTO
         public double Total { get; set; }
         public string ShippingAddress { get; set; } = null!;
         public int Status { get; set; }
-        public int UserIdbigint { get; set; }
+        public int UserId { get; set; }
     }
 }
