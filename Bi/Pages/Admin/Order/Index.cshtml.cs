@@ -38,5 +38,12 @@ namespace Client.Pages.Admin.Order
                 }
             }
         }
+
+        public async Task<IActionResult> OnGetDelete(int id)
+        {
+            var response = await _request.DeleteAsync($"https://localhost:5000/api/Order/{id}");
+
+            return RedirectToPage("/Admin/Order/Index");
+        }
     }
 }
