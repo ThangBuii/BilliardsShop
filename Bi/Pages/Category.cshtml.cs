@@ -108,6 +108,13 @@ namespace Client.Pages
         {
             await LoadDataAsync();
             CurrentPage = currentPage;
+            var token = Request.Cookies["jwtToken"];
+            if (string.IsNullOrEmpty(token))
+            {
+                // Token is not present, redirect to login page with a message
+                TempData["Message"] = "Please log in to proceed with shopping.";
+                return RedirectToPage("/Login");
+            }
             CartManager cartManager = new CartManager(_httpContext.HttpContext!.Session);
             cartManager.AddToCart(productId);
             
