@@ -2,63 +2,59 @@
 @model Client.Pages.Admin.Order.IndexModel
 @{
 }
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Mahasiswa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-</head>
+
 <body class="bg-light">
-    <h1>Order</h1>
-    <main class="container">
-        <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <!-- Search -->
-            <div class="pb-3">
-                <form class="d-flex" action="" method="get">
-                    <input class="form-control me-1" type="search" name="" value="" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-secondary" type="submit">Search</button>
-                </form>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="container">
+            <div class="card p-4 shadow-sm">
+                <h1 class="mb-4">Order</h1>
+
+                <!-- Search -->
+                <div class="mb-3">
+                    <form class="d-flex" action="" method="get">
+                        <input class="form-control me-1" type="search" name="" value="" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>
+                </div>
+
+                <!-- Add -->
+                <div class="mb-3">
+                    <a href="/Admin/Order/Create" class="btn btn-primary">Add</a>
+                </div>
+
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">Id</th>
+                                <th class="col-md-1">Date</th>
+                                <th class="col-md-1">Total</th>
+                                <th class="col-md-2">Shipping Address</th>
+                                <th class="col-md-1">Status</th>
+                                <th class="col-md-1">UserId</th>
+                                <th class="col-md-1">Feature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2024-07-22</td>
+                                <td>$100.00</td>
+                                <td>123 Main St, City, Country</td>
+                                <td>Pending</td>
+                                <td>12345</td>
+                                <td>
+                                    <a href="/Admin/Order/Update" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <!-- Add -->
-            <div class="pb-3">
-                <a href='' class="btn btn-primary btn-add-order">+ Add</a>
-            </div>
-
-            <!-- Table -->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="col-md-1">Id</th>
-                        <th class="col-md-1">Date</th>
-                        <th class="col-md-1">Total</th>
-                        <th class="col-md-1">ShippingAddress</th>
-                        <th class="col-md-1">Status</th>
-                        <th class="col-md-1">UserIdbigint</th>
-                        <th class="col-md-1">Feature</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1001</td>
-                        <td>Ani</td>
-                        <td>Ilmu Komputer</td>
-                        <td>Ilmu Komputer</td>
-                        <td>Ilmu Komputer</td>
-                        <td>
-                            <a href='' class="btn btn-warning btn-sm btn-edit-order">Edit</a>
-                            <a href='' class="btn btn-danger btn-sm">Del</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
         </div>
+    </div>
 
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
-</html>
