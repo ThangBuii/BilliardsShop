@@ -41,7 +41,7 @@ namespace API.Controllers
             }
 
             var token = GenerateJwtToken(user);
-            return Ok(new { token });
+            return Ok(new { Token = token });
         }
 
         [HttpPost("Register")]
@@ -51,7 +51,7 @@ namespace API.Controllers
             {
                 var user = _userService.RegisterUser(request);
                 var token = GenerateJwtToken(user);
-                return Ok(new { token });
+                return Ok(new { Token = token });
             }
             catch (Exception ex)
             {
@@ -67,6 +67,7 @@ namespace API.Controllers
             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim("UserId", user.Id.ToString())
         };
 
             var role = user.Role == 1 ? "Admin" : (user.Role == 2 ? "User" : "Guest");

@@ -1,5 +1,6 @@
 ﻿@page
 @model LoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 }
 <body>
@@ -44,13 +45,13 @@
                                 Welcome Back ! <br>
                                 Please Sign in now
                             </h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            <form class="row contact_form" method="post" novalidate="novalidate">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
-                                           placeholder="Username">
+                                    <input type="text" class="form-control" asp-for="Email"
+                                           placeholder="Email">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                    <input type="password" class="form-control" asp-for="Password"
                                            placeholder="Password">
                                 </div>
                                 <div class="col-md-12 form-group">
