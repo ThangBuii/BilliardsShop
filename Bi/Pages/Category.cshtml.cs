@@ -27,6 +27,9 @@ namespace Client.Pages
 
         [BindProperty]
         public List<ProductListResponseDTO> Products { get; set; } = new();
+
+        [BindProperty]
+        public List<ProductListResponseDTO> TopProducts { get; set; } = new();
         [BindProperty(SupportsGet = true)]
         public int CurrentPage { get; set; } = 1;
 
@@ -97,6 +100,7 @@ namespace Client.Pages
             Categories = await categoryResponse.Content.ReadFromJsonAsync<List<Category>>();
             Brands = await brandResponse.Content.ReadFromJsonAsync<List<Brand>>();
             Products = await productResponse.Content.ReadFromJsonAsync<List<ProductListResponseDTO>>();
+            TopProducts = Products.Take(8).ToList();
             ProductCount = Products.Count();
         }
 
@@ -104,6 +108,13 @@ namespace Client.Pages
         {
             await LoadDataAsync();
             CurrentPage = currentPage;
+            var token = Request.Cookies["jwtToken"];
+            if (string.IsNullOrEmpty(token))
+            {
+                // Token is not present, redirect to login page with a message
+                TempData["Message"] = "Please log in to proceed with shopping.";
+                return RedirectToPage("/Login");
+            }
             CartManager cartManager = new CartManager(_httpContext.HttpContext!.Session);
             cartManager.AddToCart(productId);
             

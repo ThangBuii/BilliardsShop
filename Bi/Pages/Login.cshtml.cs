@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http;
 using Share.DTO;
 using Share.DTO.UserDTO;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Client.Pages
 {
@@ -34,7 +35,14 @@ namespace Client.Pages
                 var loginResponse = await response.Content.ReadFromJsonAsync<TokenResponseDTO>();
                 var token = loginResponse.Token;
 
-                var cookieOptions = new CookieOptions
+				var handler = new JwtSecurityTokenHandler();
+				var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+				var userId = jsonToken.Claims.FirstOrDefault(claim => claim.Type == "UserId").Value;
+				// Store the userId in the session
+				HttpContext.Session.SetString("userId", userId);
+
+
+				var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
                     Secure = true,
