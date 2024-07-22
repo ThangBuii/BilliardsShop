@@ -27,6 +27,9 @@ namespace Client.Pages
 
         [BindProperty]
         public List<ProductListResponseDTO> Products { get; set; } = new();
+
+        [BindProperty]
+        public List<ProductListResponseDTO> TopProducts { get; set; } = new();
         [BindProperty(SupportsGet = true)]
         public int CurrentPage { get; set; } = 1;
 
@@ -97,6 +100,7 @@ namespace Client.Pages
             Categories = await categoryResponse.Content.ReadFromJsonAsync<List<Category>>();
             Brands = await brandResponse.Content.ReadFromJsonAsync<List<Brand>>();
             Products = await productResponse.Content.ReadFromJsonAsync<List<ProductListResponseDTO>>();
+            TopProducts = Products.Take(8).ToList();
             ProductCount = Products.Count();
         }
 
