@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Share.DTO.BrandDTO
 {
-    public class AddBrandRequestDTO
+    public class EditBrandRequestDTO
     {
+        public int Id { get; set; } 
         public string? Name {  get; set; }
     }
 }

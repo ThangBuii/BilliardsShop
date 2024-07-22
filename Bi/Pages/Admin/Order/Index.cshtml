@@ -44,16 +44,12 @@
 
                 <!-- Search -->
                 <div class="mb-3">
-                    <form class="d-flex" action="" method="get">
-                        <input class="form-control me-1" type="search" name="" value="" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" method="get">
+                        <input class="form-control me-1" type="search" name="searchTerm" value="@Model.SearchTerm" placeholder="Search by Id or address" aria-label="Search">
                         <button class="btn btn-secondary" type="submit">Search</button>
                     </form>
                 </div>
 
-                <!-- Add -->
-                <div class="mb-3">
-                    <a href="/Admin/Order/Create" class="btn btn-primary">Add</a>
-                </div>
 
                 <!-- Table -->
                 <div class="table-responsive">
@@ -61,7 +57,7 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1">Id</th>
-                                <th class="col-md-1">Date</th>
+                                <th class="col-md-2">Date</th>
                                 <th class="col-md-1">Total</th>
                                 <th class="col-md-2">Shipping Address</th>
                                 <th class="col-md-1">Status</th>
@@ -71,16 +67,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>2024-07-22</td>
-                                <td>$100.00</td>
-                                <td>123 Main St, City, Country</td>
-                                <td>Pending</td>
-                                <td>12345</td>
-                                <td>
-                                    <a href="/Admin/Order/Update" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
+                                @foreach (var listOrders in Model.Orders)
+                                {
+                                <tr>
+                                    <td>@listOrders.Id</td>
+                                    <td>@listOrders.Date</td>
+                                    <td>@listOrders.Total</td>
+                                    <td>@listOrders.ShippingAddress</td>
+                                    <td>@listOrders.Status</td>
+                                    <td>@listOrders.UserId</td>
+                                    <td>
+                                       
+                                        <a class="btn btn-danger btn-sm" asp-page-handler="Delete" asp-route-Id="@listOrders.Id">Delete</a>
+                                    </td>
+                                </tr>
+                                }
                             </tr>
                             <!-- Add more rows as needed -->
                         </tbody>

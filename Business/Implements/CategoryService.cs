@@ -34,6 +34,11 @@ namespace Business.Implements
             return _categoryRepository.GetAllCategories();
         }
 
+        public Category GetById(int id)
+        {
+            return _categoryRepository.GetCategoryById(id);
+        }
+
         public bool UpdateCategory(EditCategoryRequestDTO request)
         {
             return _categoryRepository.UpdateCategory(new Category { Id = request.Id, Name = request.Name });
