@@ -1,0 +1,40 @@
+﻿@page
+@model Client.Pages.Account.ChangePassword.IndexModel
+@{
+}
+
+<body class="bg-light">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="container">
+            <div class="card p-4 shadow">
+                <h1 class="mb-4">Change Password</h1>
+
+                <form method="post">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="oldPassword" class="form-label">Old Password:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" id="oldPassword" name="OldPassword" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="newPassword" class="form-label">New-Password:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" id="newPassword" name="NewPassword" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12 text-end">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

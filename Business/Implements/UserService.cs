@@ -19,9 +19,15 @@ namespace Business.Implements
             _userRepo = userRepo;
         }
 
-        public List<User> GetAllUsers()
+        public List<UserListReponseDTO> GetAllUsers()
         {
-            return _userRepo.GetAllUsers();
+            var list =  _userRepo.GetAllUsers().Select(u => new UserListReponseDTO
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Account = u.Email,
+            });
+            return list.ToList();
         }
 
         public User FindUser(LoginRequestDTO requestDTO)
@@ -35,7 +41,7 @@ namespace Business.Implements
             var user = new User
             {
                 Name = request.Name,
-                Account = request.Email,
+                Email = request.Email,
                 Password = request.Password,
                 Role = 2
             };

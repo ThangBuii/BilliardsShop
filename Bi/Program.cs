@@ -1,3 +1,6 @@
+using Client.WebRequests;
+using Microsoft.Extensions.Logging;
+
 namespace Client
 {
     public class Program
@@ -8,14 +11,22 @@ namespace Client
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddHttpClient();
 
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddScoped<ICustomHttpClient, CustomHttpClient>();
+  
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
+
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -24,7 +35,10 @@ namespace Client
 
             app.MapRazorPages();
 
+    
+
             app.Run();
+
         }
     }
 }

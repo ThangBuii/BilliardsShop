@@ -69,7 +69,8 @@ namespace DataLayer.Implements
 
             try
             {
-                _context.Attach(order).State = EntityState.Modified;
+                _context.Entry(originalOrder).CurrentValues.SetValues(order);
+
                 _context.SaveChanges();
                 return true;
             }
@@ -82,7 +83,7 @@ namespace DataLayer.Implements
 
         public List<Order> GetOrdersByUserId(int userId)
         {
-            var orders = _context.Orders.Where(o => o.UserIdbigint == userId);
+            var orders = _context.Orders.Where(o => o.UserId == userId);
             return orders.ToList();
         }
 

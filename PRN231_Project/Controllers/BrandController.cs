@@ -1,5 +1,6 @@
 ﻿using Business.Implements;
 using Business.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Share.DTO.BrandDTO;
@@ -34,6 +35,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post([FromBody] AddBrandRequestDTO request)
         {
             try
@@ -52,6 +54,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("/{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             try
@@ -70,6 +73,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put([FromBody] EditBrandRequestDTO request)
         {
             try

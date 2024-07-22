@@ -8,6 +8,7 @@ namespace Share.Models
         public int Id { get; set; }
         public int ProductId { get; set; }
         public string Source { get; set; } = null!;
+        public bool IsMainImage { get; set; }
 
         public virtual Product Product { get; set; } = null!;
     }
