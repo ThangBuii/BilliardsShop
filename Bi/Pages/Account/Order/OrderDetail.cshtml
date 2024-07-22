@@ -20,13 +20,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><img src="/img/BilliardRegister.jpg" /></td>
-                                <td>Bi</td>
-                                <td>1234 </td>
-                                <td>123</td>
-                                <td>S</td>
-                            </tr>
+                            @foreach(var od in Model.OrderDetails)
+                            {
+                                <tr>
+                                    <td><img src="~/@od.ImgSource" /></td>
+                                    <td>@od.ProductName</td>
+                                    <td>@od.UnitPrice</td>
+                                    <td>@od.Quantity</td>
+                                    <td>@od.TotalPrice</td>
+                                </tr>
+                            }
+                            
 
                         </tbody>
                     </table>
