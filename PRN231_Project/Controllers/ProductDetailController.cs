@@ -1,20 +1,23 @@
-﻿using Business.Interfaces;
+﻿using Business.Implements;
+using Business.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Share.DTO.ProductImageDTO;
+using Share.DTO.ProductDetailDTO;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductImageController : ControllerBase
+    public class ProductDetailController : ControllerBase
     {
-        private readonly IProductImageService _productImageService;
+        private readonly IProductDetailService _productDetailService;
 
-        public ProductImageController(IProductImageService productImageService)
+        public ProductDetailController(IProductDetailService productDetailService)
         {
-            _productImageService = productImageService;
+            _productDetailService = productDetailService;
         }
+
+       
 
         private static string MESSAGE = "An unexpected error occurred. Please try again later.";
         
@@ -24,7 +27,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(_productImageService.GetAll());
+                return Ok(_productDetailService.GetAll());
             }
             catch (Exception ex)
             {
@@ -33,11 +36,11 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(AddProductImageDTO request)
+        public IActionResult Post(AddProductDetailDTO request)
         {
             try
             {
-                return Ok(_productImageService.Add(request));
+                return Ok(_productDetailService.Add(request));
             }
             catch (Exception ex)
             {
@@ -50,7 +53,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(_productImageService.Delete(id));
+                return Ok(_productDetailService.Delete(id));
             }
             catch (Exception ex)
             {
@@ -59,11 +62,11 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update(UpdateProductImageDTO request)
+        public IActionResult Update(UpdateProductDetailDTO request)
         {
             try
             {
-                return Ok(_productImageService.Update(request));
+                return Ok(_productDetailService.Update(request));
             }
             catch (Exception ex)
             {

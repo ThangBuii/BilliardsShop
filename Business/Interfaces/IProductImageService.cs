@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Share;
-using Share.DTO.OrderDTO;
+using Share.DTO.ProductImageDTO;
 using Share.Models;
 
 namespace Business.Interfaces

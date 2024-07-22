@@ -1,56 +1,70 @@
-﻿//using Business.Interfaces;
-//using DataLayer.Interfaces;
-//using Share.DTO.BrandDTO;
-//using Share.DTO.OrderDTO;
-//using Share.Models;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using Business.Interfaces;
+using DataLayer.Interfaces;
+using Share.DTO.ProductDetailDTO;
+using Share.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace Business.Implements
-//{
-//    public class ProductImageService : IProductImageService
-//    {
-//        private readonly IProductImageRepository _productImageRepo;
+namespace Business.Implements
+{
+    public class ProductDetailService : IProductDetailService
+    {
+        private readonly IProductDetailRepository _productDetailRepo;
 
-//        public ProductImageService(IProductImageRepository productImageRepo)
-//        {
-//            _productImageRepo = productImageRepo;
-//        }
+        public ProductDetailService(IProductDetailRepository productDetailRepo)
+        {
+            _productDetailRepo = productDetailRepo;
+        }
 
-//        public ProductImage Add(AddProductImageDTO request)
-//        {
-//            return _productImageRepo.AddProductImage(new ProductImage
-//            {
-//                IsMainImage = request.IsMainImage,
-//                ProductId = request.ProductId,
-//                Source = request.Source,
-//            });
-//        }
+       
 
-//        public bool Delete(int id)
-//        {
-//            return _productImageRepo.DeleteProductImage(id);
-//        }
+        public ProductDetail Add(AddProductDetailDTO request)
+        {
+            return _productDetailRepo.AddProductDetail(new ProductDetail
+            {
+                ButtLength = request.ButtLength,
+                Description = request.Description,
+                EraserSize = request.EraserSize,
+                Grip = request.Grip,
+                Name = request.Name,
+                Price = request.Price,
+                ProductId = request.ProductId,
+                ShaftLength = request.ShaftLength,
+                ShortDescription = request.ShortDescription,
+                Weight = request.Weight,
+            });
+        }
 
-//        public List<ProductImage> GetAll()
-//        {
-//            return _productImageRepo.GetAllProductImages();
-//        }
+        public bool Delete(int id)
+        {
+            return _productDetailRepo.DeleteProductDetail(id);
+        }
 
-      
+        public List<ProductDetail> GetAll()
+        {
+            return _productDetailRepo.GetAllProductDetails();
+        }
 
-//        public bool Update(UpdateProductImageDTO request)
-//        {
-//            return _productImageRepo.UpdateProductImage(new ProductImage
-//            {
-//               Id = request.Id,
-//               Source = request.Source,
-//               ProductId = request.ProductId,
-//               IsMainImage=request.IsMainImage,
-//            });
-//        }
-//    }
-//}
+
+
+        public bool Update(UpdateProductDetailDTO request)
+        {
+            return _productDetailRepo.UpdateProductDetail(new ProductDetail
+            {
+                ButtLength = request.ButtLength,
+                Description = request.Description,
+                EraserSize = request.EraserSize,
+                Grip = request.Grip,
+                Name = request.Name,
+                Price = request.Price,
+                ProductId = request.ProductId,
+                ShaftLength = request.ShaftLength,
+                ShortDescription = request.ShortDescription,
+                Weight = request.Weight,
+            });
+        }
+    }
+}

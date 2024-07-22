@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Share.DTO.OrderDTO
+namespace Share.DTO.ProductImageDTO
 {
     public class UpdateProductImageDTO
     {

@@ -1,7 +1,7 @@
 ﻿using Business.Interfaces;
 using DataLayer.Interfaces;
 using Share.DTO.BrandDTO;
-using Share.DTO.OrderDTO;
+using Share.DTO.ProductImageDTO;
 using Share.Models;
 using System;
 using System.Collections.Generic;
