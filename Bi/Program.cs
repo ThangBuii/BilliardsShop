@@ -12,6 +12,8 @@ namespace Client
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddHttpClient();
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession();
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddScoped<ICustomHttpClient, CustomHttpClient>();
@@ -30,6 +32,7 @@ namespace Client
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 

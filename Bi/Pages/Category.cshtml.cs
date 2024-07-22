@@ -11,10 +11,12 @@ namespace Client.Pages
     public class CategoryModel : PageModel
     {
         private readonly ICustomHttpClient _request;
+        private IHttpContextAccessor _httpContext;
 
-        public CategoryModel(ICustomHttpClient request)
+        public CategoryModel(ICustomHttpClient request, IHttpContextAccessor httpContext)
         {
             _request = request;
+            _httpContext = httpContext;
         }
         [BindProperty]
         public List<Category> Categories { get; set; } = new();
@@ -33,6 +35,8 @@ namespace Client.Pages
 
         [BindProperty]
         public int TotalPages => (int)Math.Ceiling((double)ProductCount / PageSize);
+
+
         public async Task<IActionResult> OnGetAsync()
         {
 
@@ -94,6 +98,16 @@ namespace Client.Pages
             Brands = await brandResponse.Content.ReadFromJsonAsync<List<Brand>>();
             Products = await productResponse.Content.ReadFromJsonAsync<List<ProductListResponseDTO>>();
             ProductCount = Products.Count();
+        }
+
+        public async Task<IActionResult> OnGetAddToCart(int currentPage,int productId)
+        {
+            await LoadDataAsync();
+            CurrentPage = currentPage;
+            CartManager cartManager = new CartManager(_httpContext.HttpContext!.Session);
+            cartManager.AddToCart(productId);
+            
+            return Page();
         }
     }
 }
