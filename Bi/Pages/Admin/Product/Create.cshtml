@@ -2,6 +2,9 @@
 @model Client.Pages.Admin.Product.CreateModel
 @{
 }
+<style>
+
+</style>
 <body class="bg-light">
     <div class="container mt-4">
         <h1 class="mb-4">Create Product</h1>
@@ -22,25 +25,30 @@
                 <div class="mb-3 row">
                     <label for="category" class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
-                        <select id="category" name="category" style="display: block">
+                        <select id="category" name="category">
                             <option value="">Select Category</option>
-                            <option value="1">Category1</option>
-                            <option value="2">Category2</option>
-                            <option value="3">Category3</option>
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
                         </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="brand" class="col-sm-2 col-form-label">Brand</label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="brand" name="brand">
+                        <select id="brand" name="brand">
                             <option value="">Select Brand</option>
-                            <option value="1">Brand1</option>
-                            <option value="2">Brand2</option>
-                            <option value="3">Brand3</option>
+                            @foreach (var brand in Model.Brands)
+                            {
+                                <option value="@brand.Id">@brand.Name</option>
+                            }
                         </select>
                     </div>
                 </div>
+
+
+
                 <div class="mb-3 row">
                     <label for="price" class="col-sm-2 col-form-label">Price</label>
                     <div class="col-sm-10">
@@ -55,8 +63,9 @@
                 </div>
                 <div class="mb-3 row">
                     <label for="isAvailable" class="col-sm-2 col-form-label">Available</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="isAvailable" name="isAvailable">
+                    <div class="col-sm-5">
+                        <input type="checkbox" class="form-check-input" id="isAvailable" name="isAvailable">
+                        <label class="form-check-label" for="isAvailable">Available</label>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -105,24 +114,6 @@
                     <label for="productImage1" class="col-sm-2 col-form-label">Product Image 1</label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control" id="productImage1" name="productImage1" accept="image/*">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="productImage2" class="col-sm-2 col-form-label">Product Image 2</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="productImage2" name="productImage2" accept="image/*">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="productImage3" class="col-sm-2 col-form-label">Product Image 3</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="productImage3" name="productImage3" accept="image/*">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="productImage4" class="col-sm-2 col-form-label">Product Image 4</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="productImage4" name="productImage4" accept="image/*">
                     </div>
                 </div>
                 <div class="mb-3 row">
