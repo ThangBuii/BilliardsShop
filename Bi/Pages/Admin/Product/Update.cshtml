@@ -2,147 +2,137 @@
 @model Client.Pages.Admin.Product.UpdateModel
 @{
 }
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Mahasiswa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-</head>
 <body class="bg-light">
-    <h1>Edit Product</h1>
-    <main class="container">
-        <form method='post'>
-            <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <div class="container mt-4">
+        <h1 class="mb-4">Update Product</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="card p-4 shadow-sm">
                 <div class="mb-3 row">
-                    <label for="nim" class="col-sm-2 col-form-label">Id</label>
+                    <label for="id" class="col-sm-2 col-form-label">Id</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="id">
+                        <input type="number" class="form-control" id="id" name="id">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Name</label>
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Category</label>
+                    <label for="category" class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
-                        <select class="form-select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select class="form-select" id="category" name="category">
+                            <option value="">Select Category</option>
+                            <option value="1">Category1</option>
+                            <option value="2">Category2</option>
+                            <option value="3">Category3</option>
                         </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Brand</label>
+                    <label for="brand" class="col-sm-2 col-form-label">Brand</label>
                     <div class="col-sm-10">
-                        <select class="form-select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select class="form-select" id="brand" name="brand">
+                            <option value="">Select Brand</option>
+                            <option value="1">Brand1</option>
+                            <option value="2">Brand2</option>
+                            <option value="3">Brand3</option>
                         </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Price</label>
+                    <label for="price" class="col-sm-2 col-form-label">Price</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="price">
+                        <input type="text" class="form-control" id="price" name="price">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">UnitInstock</label>
+                    <label for="unitInstock" class="col-sm-2 col-form-label">Unit In Stock</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="unitInstock">
+                        <input type="text" class="form-control" id="unitInstock" name="unitInstock">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">IsAvailable</label>
+                    <label for="isAvailable" class="col-sm-2 col-form-label">Available</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="isAvailable">
+                        <input type="text" class="form-control" id="isAvailable" name="isAvailable">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Description</label>
+                    <label for="description" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="description">
+                        <input type="text" class="form-control" id="description" name="description">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">ShortDescription</label>
+                    <label for="shortDescription" class="col-sm-2 col-form-label">Short Description</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="shortDescription">
+                        <input type="text" class="form-control" id="shortDescription" name="shortDescription">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Weight</label>
+                    <label for="weight" class="col-sm-2 col-form-label">Weight</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="weight">
+                        <input type="text" class="form-control" id="weight" name="weight">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">EraserSize</label>
+                    <label for="eraserSize" class="col-sm-2 col-form-label">Eraser Size</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="eraserSize">
+                        <input type="text" class="form-control" id="eraserSize" name="eraserSize">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">ButtLength</label>
+                    <label for="buttLength" class="col-sm-2 col-form-label">Butt Length</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="buttLength">
+                        <input type="text" class="form-control" id="buttLength" name="buttLength">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">ShaftLength</label>
+                    <label for="shaftLength" class="col-sm-2 col-form-label">Shaft Length</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="shaftLength">
+                        <input type="text" class="form-control" id="shaftLength" name="shaftLength">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Grip</label>
+                    <label for="grip" class="col-sm-2 col-form-label">Grip</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="grip">
+                        <input type="text" class="form-control" id="grip" name="grip">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Product Image 1</label>
+                    <label for="productImage1" class="col-sm-2 col-form-label">Product Image 1</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" name="productImage1" accept="image/*" />
+                        <input type="file" class="form-control" id="productImage1" name="productImage1" accept="image/*">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Product Image 2</label>
+                    <label for="productImage2" class="col-sm-2 col-form-label">Product Image 2</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" name="productImage2" accept="image/*" />
+                        <input type="file" class="form-control" id="productImage2" name="productImage2" accept="image/*">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Product Image 3</label>
+                    <label for="productImage3" class="col-sm-2 col-form-label">Product Image 3</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" name="productImage3" accept="image/*" />
+                        <input type="file" class="form-control" id="productImage3" name="productImage3" accept="image/*">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Product Image 4</label>
+                    <label for="productImage4" class="col-sm-2 col-form-label">Product Image 4</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" name="productImage4" accept="image/*" />
+                        <input type="file" class="form-control" id="productImage4" name="productImage4" accept="image/*">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="jurusan" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary" name="submit">Update</button>
-                        <a href="/Admin/Index" class="btn btn-secondary">Cancel</a>
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="/Admin/Product/Index" class="btn btn-secondary">Cancel</a>
                     </div>
                 </div>
             </div>
         </form>
+    </div>
 
-
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
-</html>
