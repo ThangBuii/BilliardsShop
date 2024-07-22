@@ -25,7 +25,14 @@ namespace Client.Pages
 
         [BindProperty]
         public List<ProductListResponseDTO> Products { get; set; } = new();
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
 
+        [BindProperty(SupportsGet = true)]
+        public int PageSize { get; set; } = 9;
+
+        [BindProperty]
+        public int TotalPages => (int)Math.Ceiling((double)ProductCount / PageSize);
         public async Task<IActionResult> OnGetAsync()
         {
 
