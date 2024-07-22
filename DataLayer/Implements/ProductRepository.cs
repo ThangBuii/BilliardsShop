@@ -77,6 +77,7 @@ namespace DataLayer.Implements
                ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
                IsAvailable = p.IsAvailable,
                Name = p.ProductDetail.Name,
+               Price = p.ProductDetail.Price,
                BrandId = p.BrandId,
                CategoryId = p.CategoryId,
            }).Where(p => p.BrandId == brandId && p.CategoryId == categoryId).ToList();
@@ -112,6 +113,7 @@ namespace DataLayer.Implements
                 ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
                 IsAvailable = p.IsAvailable,
                 Name = p.ProductDetail.Name,
+                Price = p.ProductDetail.Price,
                 BrandId = p.BrandId,
                 CategoryId = p.CategoryId,
             }).ToList();
@@ -149,6 +151,7 @@ namespace DataLayer.Implements
                 ImgSource = p.ProductImages.FirstOrDefault(pi => pi.IsMainImage == true).Source,
                 IsAvailable = p.IsAvailable,
                 Name = p.ProductDetail.Name,
+                Price = p.ProductDetail.Price,
                 BrandId = p.BrandId,
                 CategoryId = p.CategoryId,
             }).Where(p => p.BrandId == brandId).ToList();
@@ -164,6 +167,7 @@ namespace DataLayer.Implements
                 IsAvailable = p.IsAvailable,
                 Name = p.ProductDetail.Name,
                 BrandId = p.BrandId,
+                Price = p.ProductDetail.Price,
                 CategoryId = p.CategoryId,
             }).Where(p => p.CategoryId == categoryId).ToList();
             return list;
