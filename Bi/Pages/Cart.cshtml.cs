@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Share.DTO.ProductDTO;
 using Share.Models;
+using System.Text.Json;
 
 namespace Client.Pages
 {
@@ -48,6 +49,13 @@ namespace Client.Pages
                 SubTotal += cartProduct.Total;
                 Carts.Add(cartProduct);
             }
+
+            var cartsJson = JsonSerializer.Serialize(Carts);
+            var subTotalJson = JsonSerializer.Serialize(SubTotal);
+
+            // Store JSON strings in the session
+            HttpContext.Session.SetString("Carts", cartsJson);
+            HttpContext.Session.SetString("SubTotal", subTotalJson);
 
             return Page();
 
