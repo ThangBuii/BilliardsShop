@@ -5,7 +5,9 @@ namespace Client.Pages.Account.Order
 {
     public class OrderDetailModel : PageModel
     {
-        public void OnGet()
+        [BindProperty(SupportsGet = true)]
+        public int OrderId { get; set; }
+        public void OnGet([FromQuery] int orderID)
         {
         }
     }
