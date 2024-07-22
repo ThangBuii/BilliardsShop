@@ -32,6 +32,20 @@ namespace API.Controllers
             }
         }
 
+        [HttpGet("GetById/{id}")]
+        public IActionResult GetCategoryById(int id)
+        {
+            try
+            {
+                var category = _categoryService.GetById(id);
+                return Ok(category);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = MESSAGE });
+            }
+        }
+
         [HttpPost]
         //[Authorize(Roles = "Admin")]
         public IActionResult Post([FromBody] AddCategoryRequestDTO request)

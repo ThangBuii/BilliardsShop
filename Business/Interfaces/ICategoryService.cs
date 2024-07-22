@@ -18,5 +18,6 @@ namespace Business.Interfaces
         bool DeleteCategory(int id);
 
         bool UpdateCategory(EditCategoryRequestDTO request);
+        Category GetById(int id);
     }
 }
