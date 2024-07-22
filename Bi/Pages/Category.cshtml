@@ -99,7 +99,9 @@
                         {
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_product_item">
-                                    <img src="@product.ImgSource" alt="">
+                                    <a href="/ProductDetail?id=@product.Id">
+                                        <img src="@product.ImgSource" alt="">
+                                    </a>
                                     <div class="single_product_text">
                                         <h4>@product.Name</h4>
                                         <h3>$@product.Price</h3>
