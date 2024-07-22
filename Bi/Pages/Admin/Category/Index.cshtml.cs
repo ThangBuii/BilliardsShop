@@ -14,20 +14,20 @@ namespace Client.Pages.Admin.Category
         }
 
         [BindProperty]
-        public List<Share.Models.Brand> Brands { get; set; } = new();
+        public List<Share.Models.Category> Categories { get; set; } = new();
 
         public void OnGet()
         {
-            Brands = new List<Share.Models.Brand>();
-            var response = _request.GetAsync("https://localhost:5000/api/Brand").Result;
-            Brands = response.Content.ReadFromJsonAsync<List<Share.Models.Brand>>().Result;
+            Categories = new List<Share.Models.Category>();
+            var response = _request.GetAsync("https://localhost:5000/api/Category").Result;
+            Categories = response.Content.ReadFromJsonAsync<List<Share.Models.Category>>().Result;
         }
 
         public async Task<IActionResult> OnGetDelete(int id)
         {
-            var response = await _request.DeleteAsync($"https://localhost:5000/{id}");
+            var response = await _request.DeleteAsync($"https://localhost:5000/api/Category/{id}");
 
-            return RedirectToPage("/Admin/Brand/Index");
+            return RedirectToPage("/Admin/Category/Index");
         }
     }
 }

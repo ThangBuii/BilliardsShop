@@ -1,5 +1,6 @@
 ﻿@page
 @model Client.Pages.Admin.Category.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 }
 
@@ -33,12 +34,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>1001</td>
-                            <td>
-                                <a href="/Admin/Category/Update" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                            </td>
+                             @foreach(var listCategories in Model.Categories)
+                                {
+                                <tr>    
+                                    <td>@listCategories.Id</td>
+                                    <td>@listCategories.Name</td>
+                                <td>
+                                    <a href='/Admin/Brand/Update/@listCategories.Id' class="btn btn-warning btn-sm btn-edit-brand">Edit</a>
+                                    <a class="btn btn-danger btn-sm" asp-page-handler="Delete" asp-route-Id="@listCategories.Id">Delete</a>
+                                </td>
+                            </tr>
+                            }
                         </tr>
                     </tbody>
                 </table>
