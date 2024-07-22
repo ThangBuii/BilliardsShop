@@ -11,6 +11,7 @@ namespace Share.DTO.ProductDTO
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public int BrandId { get; set; }
+        public double Price { get; set; }
         public int CategoryId { get; set; }
         public string ImgSource { get; set; } = null!;
         public bool? IsAvailable { get; set; }
