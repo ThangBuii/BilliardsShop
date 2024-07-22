@@ -13,7 +13,9 @@ namespace Client.Pages
 
         [BindProperty]
         public ProductDetailResponseDTO Product {  get; set; }
+        [BindProperty]
         public int ProductID { get; set; }
+        [BindProperty]
         public int Quantity { get; set; }
         public ProductDetailModel(ICustomHttpClient request, IHttpContextAccessor httpContext)
         {
