@@ -17,5 +17,6 @@ namespace Business.Interfaces
         public bool DeleteBrand(int id);
 
         public bool UpdateBrand(EditBrandRequestDTO request);
+        public Brand GetById(int id);
     }
 }

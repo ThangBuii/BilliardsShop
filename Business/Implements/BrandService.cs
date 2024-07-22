@@ -30,6 +30,11 @@ namespace Business.Implements
             return _brandRepository.GetAllBrands();
         }
 
+        public Brand GetById(int id)
+        {
+            return _brandRepository.GetBrandById(id);
+        }
+
         public bool UpdateBrand(EditBrandRequestDTO request)
         {
             return _brandRepository.UpdateBrand(new Brand { Id = request.Id,Name = request.Name });

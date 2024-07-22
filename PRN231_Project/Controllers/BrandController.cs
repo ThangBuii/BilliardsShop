@@ -34,8 +34,22 @@ namespace API.Controllers
             }
         }
 
+        [HttpGet("/{id}")]
+        public IActionResult GetBrandsById(int id)
+        {
+            try
+            {
+                var brand = _brandService.GetById(id);
+                return Ok(brand);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = MESSAGE });
+            }
+        }
+
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Post([FromBody] AddBrandRequestDTO request)
         {
             try
@@ -54,7 +68,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             try
@@ -73,7 +87,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Put([FromBody] EditBrandRequestDTO request)
         {
             try
