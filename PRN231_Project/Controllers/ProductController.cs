@@ -45,7 +45,7 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet("{brandId}")]
+        [HttpGet("Brand/{brandId}")]
         public IActionResult GetByBrand(int brandId)
         {
             try
@@ -59,7 +59,7 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet("{categoryId}")]
+        [HttpGet("Category/{categoryId}")]
         public IActionResult GetByCategory(int categoryId)
         {
             try

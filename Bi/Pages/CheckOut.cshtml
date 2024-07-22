@@ -1,0 +1,134 @@
+﻿@page
+@model Client.Pages.CheckOutModel;
+@{
+}
+@functions {
+    public string TruncateString(string value, int maxLength)
+    {
+        if (string.IsNullOrEmpty(value)) return value;
+        return value.Length <= maxLength ? value : value.Substring(0, maxLength) + "...";
+    }
+}
+<body>
+
+
+    <!--================Home Banner Area =================-->
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Product Checkout</h2>
+                            <p>Home <span>-</span> Shop Single</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+    <!--================Checkout Area =================-->
+    <section class="checkout_area padding_top">
+        <div class="container">
+            
+            
+            <div class="billing_details">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>Billing Details</h3>
+                        <form id="paymentForm" class="row contact_form" action="" method="post" novalidate="novalidate">
+                         
+
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Address" />
+                                <span class="placeholder" data-placeholder="Address line 01"></span>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <div class="creat_account">
+                                    <h3>Shipping Details</h3>
+                                    <input type="checkbox" id="f-option3" name="selector" />
+                                    <label for="f-option3">Ship to a different address?</label>
+                                </div>
+                                <textarea class="form-control" asp-for="Note" rows="1"
+                                          placeholder="Order Notes"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="order_box">
+                            <h2>Your Order</h2>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">
+                                        Product
+                                        <span>Total</span>
+                                    </a>
+                                </li>
+                                @foreach(var product in Model.Carts)
+                                {
+                                    <li>
+                                        <a href="#">
+                                            @TruncateString(product.Name, 10)
+                                            <span class="middle">x @product.Quantity</span>
+                                            <span class="last">@product.Total</span>
+                                        </a>
+                                    </li>
+                                }
+                                
+                                
+                            </ul>
+                            <ul class="list list_2">
+                                <li>
+                                    <a href="#">
+                                        Total
+                                        <span>$@Model.SubTotal</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="payment_item">
+                                <div class="radion_btn">
+                                    <input type="radio" id="f-option5" name="selector" />
+                                    <label for="f-option5">Cod</label>
+                                    <div class="check"></div>
+                                </div>
+                                <p>
+                                    Pay when given 
+                                </p>
+                            </div>
+                            <div class="payment_item active">
+                                <div class="radion_btn">
+                                    <input type="radio" id="f-option6" name="selector" />
+                                    <label for="f-option6">Paypal </label>
+                                    <img src="img/product/single-product/card.jpg" alt="" />
+                                    <div class="check"></div>
+                                </div>
+                                <p>
+                                    Please send a check to Store Name, Store Street, Store Town,
+                                    Store State / County, Store Postcode.
+                                </p>
+                            </div>
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option4" name="selector" />
+                                <label for="f-option4">I’ve read and accept the </label>
+                                <a href="#">terms & conditions*</a>
+                            </div>
+                            <a class="btn_3" href="javascript:void(0);" onclick="submitPaymentForm()">Pay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Checkout Area =================-->
+
+
+</body>
+
+<script>
+    function submitPaymentForm() {
+        document.getElementById("paymentForm").submit();
+    }
+</script>
