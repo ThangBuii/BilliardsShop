@@ -20,6 +20,8 @@ namespace Client.Pages
         public List<Category> Categories { get; set; } = new();
         [BindProperty]
         public List<Brand> Brands { get; set; } = new();
+        [BindProperty(SupportsGet =true)]
+        public int ProductCount { get; set; }
 
         [BindProperty]
         public List<ProductListResponseDTO> Products { get; set; } = new();
@@ -40,6 +42,23 @@ namespace Client.Pages
             {
                 var productResponse = await _request.GetAsync($"https://localhost:5000/api/Product/Category/{id}");
                 Products = await productResponse.Content.ReadFromJsonAsync<List<ProductListResponseDTO>>();
+                ProductCount = Products.Count();
+                // Add logic to filter or use SearchCategoryId as needed
+            }
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnGetSearchByBrandAsync(int id)
+        {
+            await LoadDataAsync();
+
+            // Handle search by category logic
+            if (id != 0)
+            {
+                var productResponse = await _request.GetAsync($"https://localhost:5000/api/Product/Brand/{id}");
+                Products = await productResponse.Content.ReadFromJsonAsync<List<ProductListResponseDTO>>();
+                ProductCount = Products.Count();
                 // Add logic to filter or use SearchCategoryId as needed
             }
 
@@ -51,6 +70,7 @@ namespace Client.Pages
             Categories = new List<Category>();
             Brands = new List<Brand>();
             Products = new List<ProductListResponseDTO>();
+            ProductCount = 0;
 
             var categoryResponse = await _request.GetAsync("https://localhost:5000/api/Category");
             var brandResponse = await _request.GetAsync("https://localhost:5000/api/Brand");
@@ -66,6 +86,7 @@ namespace Client.Pages
             Categories = await categoryResponse.Content.ReadFromJsonAsync<List<Category>>();
             Brands = await brandResponse.Content.ReadFromJsonAsync<List<Brand>>();
             Products = await productResponse.Content.ReadFromJsonAsync<List<ProductListResponseDTO>>();
+            ProductCount = Products.Count();
         }
     }
 }
