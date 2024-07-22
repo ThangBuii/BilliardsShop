@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Bi</title>
-   
+
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -29,7 +29,7 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="~/css/style.css">
 </head>
-<body>
+<body style="display:block">
     <header class="main_menu home_menu">
         <div class="container">
             <div class="row align-items-center">
@@ -136,9 +136,9 @@
     </header>
 
 
-    <div class="content-body">
-                @RenderBody()
-            </div>
+    <div >
+        @RenderBody()
+    </div>
 
     <footer class="footer_part">
         <div class="container">
@@ -164,6 +164,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
 
         </div>
