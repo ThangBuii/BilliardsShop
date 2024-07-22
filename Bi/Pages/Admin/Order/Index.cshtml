@@ -38,16 +38,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>2024-07-22</td>
-                                <td>$100.00</td>
-                                <td>123 Main St, City, Country</td>
-                                <td>Pending</td>
-                                <td>12345</td>
-                                <td>
-                                    <a href="/Admin/Order/Update" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
+                                @foreach (var listOrders in Model.Orders)
+                                {
+                                <tr>
+                                    <td>@listOrders.Id</td>
+                                    <td>@listOrders.Date</td>
+                                    <td>@listOrders.Total</td>
+                                    <td>@listOrders.ShippingAddress</td>
+                                    <td>@listOrders.Status</td>
+                                    <td>@listOrders.UserId</td>
+                                    <td>
+                                        <a href='/Admin/Orders/Update/@listOrders.Id' class="btn btn-warning btn-sm btn-edit-order">Edit</a>
+                                        <a class="btn btn-danger btn-sm" asp-page-handler="Delete" asp-route-Id="@listOrders.Id">Delete</a>
+                                    </td>
+                                </tr>
+                                }
                             </tr>
                             <!-- Add more rows as needed -->
                         </tbody>
