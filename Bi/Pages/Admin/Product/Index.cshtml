@@ -25,40 +25,33 @@
                 <thead>
                     <tr>
                         <th class="col-md-1">Id</th>
-                        <th class="col-md-2">Name</th>
-                        <th class="col-md-2">Category</th>
-                        <th class="col-md-2">Brand</th>
-                        <th class="col-md-1">Price</th>
-                        <th class="col-md-1">Unit In Stock</th>
-                        <th class="col-md-1">Available</th>
+                        <th class="col-md-2">CategoryId</th>
+                        <th class="col-md-2">UnitsInStock</th>
+                        <th class="col-md-2">Available</th>
+                        <th class="col-md-1">BrandId</th>
+                        <th class="col-md-1">Brand</th>
+                        <th class="col-md-1">Category</th>
                         <th class="col-md-2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>Example Product</td>
-                        <td>
-                            <select class="form-select" aria-label="Category">
-                                <option selected>Category1</option>
-                                <option>Category2</option>
-                                <option>Category3</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select class="form-select" aria-label="Brand">
-                                <option selected>Brand1</option>
-                                <option>Brand2</option>
-                                <option>Brand3</option>
-                            </select>
-                        </td>
-                        <td>$100</td>
-                        <td>50</td>
-                        <td>Yes</td>
-                        <td>
-                            <a href="/Admin/Product/Update" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
+                        @foreach (var listCategories in Model.Products)
+                        {
+                        <tr>
+                            <td>@listCategories.Id</td>
+                            <td>@listCategories.CategoryId</td>
+                            <td>@listCategories.UnitsInStock</td>
+                            <td>@listCategories.IsAvailable</td>
+                            <td>@listCategories.BrandId</td>
+                            <td>@listCategories.Brand</td>
+                            <td>@listCategories.Category</td>
+                            <td>
+                                <a href='/Admin/Category/Update/@listCategories.Id' class="btn btn-warning btn-sm btn-edit-category">Edit</a>
+                                <a class="btn btn-danger btn-sm" asp-page-handler="Delete" asp-route-Id="@listCategories.Id">Delete</a>
+                            </td>
+                        </tr>
+                        }
                     </tr>
                 </tbody>
             </table>
