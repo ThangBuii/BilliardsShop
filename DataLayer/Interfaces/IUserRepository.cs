@@ -1,4 +1,5 @@
-﻿using Share.Models;
+﻿using Share.DTO.UserDTO;
+using Share.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace DataLayer.Interfaces
         bool UpdateUser(User user);
         bool DeleteUser(int id);
         public User Login(string email,string password);
+        bool ChangePassword(ChangePasswordRequestDTO request);
     }
 }

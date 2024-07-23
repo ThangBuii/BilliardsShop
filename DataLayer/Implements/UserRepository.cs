@@ -1,5 +1,6 @@
 ﻿using DataLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Share.DTO.UserDTO;
 using Share.Models;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,27 @@ namespace DataLayer.Implements
             {
                 Console.WriteLine(ex.Message);
                 return null;
+            }
+        }
+
+        public bool ChangePassword(ChangePasswordRequestDTO request)
+        {
+            var user = GetUserById(request.UserId);
+            if (user == null || !user.Password.Equals(request.OldPassword))
+            {
+                return false;
+            }
+
+            try
+            {
+                user.Password = request.NewPassword;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
 

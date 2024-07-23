@@ -53,5 +53,10 @@ namespace Business.Implements
         {
             return _userRepo.GetUserById(id);
         }
+
+        public bool ChangePassword(ChangePasswordRequestDTO request)
+        {
+            return _userRepo.ChangePassword(request);
+        }
     }
 }

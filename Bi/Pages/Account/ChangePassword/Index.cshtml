@@ -1,5 +1,6 @@
 ﻿@page
 @model Client.Pages.Account.ChangePassword.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 }
 
@@ -15,16 +16,16 @@
                             <label for="oldPassword" class="form-label">Old Password:</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" id="oldPassword" name="OldPassword" class="form-control" required />
+                            <input type="password" asp-for="ChangePasswordRequest.OldPassword" class="form-control" required />
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-3">
-                            <label for="newPassword" class="form-label">New-Password:</label>
+                            <label for="newPassword" class="form-label">New Password:</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" id="newPassword" name="NewPassword" class="form-control" required />
+                            <input type="password" asp-for="ChangePasswordRequest.NewPassword" class="form-control" required />
                         </div>
                     </div>
 
