@@ -22,5 +22,12 @@ namespace Client.Pages.Admin.Product
             var response = _request.GetAsync("https://localhost:5000/api/Product").Result;
             Products = response.Content.ReadFromJsonAsync<List<Share.Models.Product>>().Result;
         }
+
+        public async Task<IActionResult> OnGetDelete(int id)
+        {
+            var response = await _request.DeleteAsync($"https://localhost:5000/api/Product/{id}");
+
+            return RedirectToPage("/Admin/Product/Index");
+        }
     }
 }
