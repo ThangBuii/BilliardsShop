@@ -35,6 +35,10 @@ namespace Client.Pages
             foreach (var productId in cart.Keys)
             {
                 var productResponse = await _request.GetAsync($"https://localhost:5000/api/Product/Detail/{productId}");
+                if (!productResponse.IsSuccessStatusCode)
+                {
+                    return Redirect("/Error500");
+                }
                 var product = await productResponse.Content.ReadFromJsonAsync<ProductDetailResponseDTO>();
                 var cartProduct = new ProductCartDTO
                 {

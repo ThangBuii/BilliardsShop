@@ -43,7 +43,7 @@ namespace Business.Implements
                 Name = request.Name,
                 Email = request.Email,
                 Password = request.Password,
-                Role = 2
+                Role = 3
             };
             var newUser = _userRepo.AddUser(user);
             return newUser;

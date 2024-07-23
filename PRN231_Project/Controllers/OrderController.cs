@@ -1,4 +1,5 @@
 ﻿using Business.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Share.DTO.OrderDTO;
@@ -17,6 +18,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
             try
@@ -43,6 +45,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             try
@@ -56,6 +59,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(UpdateOrderDTO request)
         {
             try

@@ -7,6 +7,7 @@ using System.Text;
 using Share.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using Share.EmailService;
 
 
 namespace PRN231_Project
@@ -37,6 +38,7 @@ namespace PRN231_Project
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
                 };
             });
+            builder.Services.AddScoped<IEmailSender,EmailSender>();
 
             builder.Services.AddSwaggerGen(c =>
             {
