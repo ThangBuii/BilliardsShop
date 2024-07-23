@@ -14,7 +14,7 @@ namespace Business.Interfaces
         public User FindUser(LoginRequestDTO requestDTO);
 
         public List<UserListReponseDTO> GetAllUsers();
-
+        User GetUserById(int id);
 
         public User RegisterUser(RegisterRequestDTO request);
     }

@@ -31,6 +31,13 @@ namespace API.Controllers
             return Ok(user);
         }
 
+        [HttpGet("GetUserById/{id}")]
+        public IActionResult GetUserById(int id)
+        {
+            var user = _userService.GetUserById(id);
+            return Ok(user);
+        }
+
         [HttpPost("Login")]
         public IActionResult Login(LoginRequestDTO request)
         {

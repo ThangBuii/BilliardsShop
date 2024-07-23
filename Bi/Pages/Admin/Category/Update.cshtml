@@ -1,7 +1,6 @@
 ﻿@page "{id:int}"
 @model Client.Pages.Admin.Category.UpdateModel
 @{
-
     Layout = null;
 }
 
@@ -11,7 +10,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Bi</title>
-
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -37,43 +35,37 @@
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body class="bg-light">
-    if (Model.Categories == null)
+    @if (Model.Categories == null)
     {
         <p>Loading...</p>
     }
     else
     {
-        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <div class="container">
-                <div class="card p-4 shadow">
-                    <h1 class="mb-4">Edit Categories</h1>
-                    <form method="post">
-                        <div class="mb-3 row">
-                            <label for="id" class="col-sm-2 col-form-label">Id</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" name="id" id="id" value="@Model.Categories.Id" readonly>
-                            </div>
-                        <div class="mb-3 row">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" id="name" value="@Model.Categories.Name">
-                            </div>
+        <div class="container mt-4">
+            <div class="card p-4 shadow">
+                <h1 class="mb-4">Edit Categories</h1>
+                <form method="post">
+                    <div class="mb-3 row">
+                        <label for="id" class="col-sm-2 col-form-label">Id</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="id" name="id" value="@Model.Categories.Id" readonly>
                         </div>
-                        <div class="mb-3 row">
-                            <div class="col-sm-12 text-end">
-                                <button type="submit" class="btn btn-primary" name="submit">Update</button>
-                                <a href="/Admin/Category/Index" class="btn btn-secondary">Cancel</a>
-                            </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="name" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" value="@Model.Categories.Name">
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-12 text-end">
+                            <button type="submit" class="btn btn-primary" name="submit">Update</button>
+                            <a href="/Admin/Category/Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
     }
-
-
-
 </body>
 </html>
-
