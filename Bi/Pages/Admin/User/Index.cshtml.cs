@@ -24,7 +24,7 @@ namespace Client.Pages.Admin.User
         //    Users = response.Content.ReadFromJsonAsync<List<Share.Models.User>>().Result;
         //}
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var response = await _request.GetAsync("https://localhost:5000/api/User");
             if (response.IsSuccessStatusCode)
@@ -38,7 +38,9 @@ namespace Client.Pages.Admin.User
                 {
                     Users = users;
                 }
+                return Page();
             }
+            return Redirect("/Error403");
         }
     }
 }

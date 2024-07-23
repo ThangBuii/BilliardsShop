@@ -27,8 +27,11 @@ namespace Client.Pages.Admin.Brand
             {
                 return RedirectToPage("/Admin/Brand/Index");
             }
-            ModelState.AddModelError(string.Empty, "Unable to Add brand.");
-            return Page();
+            else
+            {
+                return Redirect("/Error403");
+            }
+            
         }
     }
 }

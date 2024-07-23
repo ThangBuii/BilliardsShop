@@ -52,8 +52,7 @@ namespace Client.Pages.Admin.Order
             var response = await _request.PostJsonAsync("https://localhost:5000/api/Order", addOrderDTO);
             if (!response.IsSuccessStatusCode)
             {
-                // Handle error (e.g., display message to user)
-                return Page();
+                return Redirect("/Error403");
             }
 
             return RedirectToPage("/Admin/Order/Index");

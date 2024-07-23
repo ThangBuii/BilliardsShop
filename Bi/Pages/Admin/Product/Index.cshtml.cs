@@ -16,16 +16,26 @@ namespace Client.Pages.Admin.Product
         [BindProperty]
         public List<Share.Models.Product> Products { get; set; } = new();
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
             Products = new List<Share.Models.Product>();
             var response = _request.GetAsync("https://localhost:5000/api/Product").Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                return Redirect("/Error403");
+    
+            }
             Products = response.Content.ReadFromJsonAsync<List<Share.Models.Product>>().Result;
+            return Page();
         }
 
         public async Task<IActionResult> OnGetDelete(int id)
         {
             var response = await _request.DeleteAsync($"https://localhost:5000/api/Product/{id}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Redirect("/Error403");
+            }
 
             return RedirectToPage("/Admin/Product/Index");
         }

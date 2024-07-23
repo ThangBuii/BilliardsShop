@@ -29,6 +29,7 @@ namespace Client.Pages.Admin.Product
         {
             Brands = new List<Share.Models.Brand>();
             var response1 = _request.GetAsync("https://localhost:5000/api/Brand").Result;
+
             Brands = response1.Content.ReadFromJsonAsync<List<Share.Models.Brand>>().Result;
             Categories = new List<Share.Models.Category>();
             var response2 = _request.GetAsync("https://localhost:5000/api/Category").Result;

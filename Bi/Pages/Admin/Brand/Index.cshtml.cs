@@ -24,7 +24,7 @@ namespace Client.Pages.Admin.Brand
         //    var response = _request.GetAsync("https://localhost:5000/api/Brand").Result;
         //    Brands = response.Content.ReadFromJsonAsync<List<Share.Models.Brand>>().Result;
         //}
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var response = await _request.GetAsync("https://localhost:5000/api/Brand");
             if (response.IsSuccessStatusCode)
@@ -38,6 +38,11 @@ namespace Client.Pages.Admin.Brand
                 {
                     Brands = brands;
                 }
+                return Page();
+            }
+            else
+            {
+                return Redirect("/Error403");
             }
         }
 
@@ -45,6 +50,10 @@ namespace Client.Pages.Admin.Brand
         public async Task<IActionResult> OnGetDelete(int id)
         {
             var response = await _request.DeleteAsync($"https://localhost:5000/{id}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Redirect("/Error403");
+            }
             
             return RedirectToPage("/Admin/Brand/Index");
         }

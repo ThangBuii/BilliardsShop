@@ -49,9 +49,21 @@ namespace Client.Pages.Admin.Product
         {
             Brands = new List<Share.Models.Brand>();
             var response1 = _request.GetAsync("https://localhost:5000/api/Brand").Result;
+            if (!response1.IsSuccessStatusCode)
+            {
+                 Redirect("/Error403");
+            }
             Brands = response1.Content.ReadFromJsonAsync<List<Share.Models.Brand>>().Result;
+            if (!response1.IsSuccessStatusCode)
+            {
+                Redirect("/Error403");
+            }
             Categories = new List<Share.Models.Category>();
             var response2 = _request.GetAsync("https://localhost:5000/api/Category").Result;
+            if (!response2.IsSuccessStatusCode)
+            {
+                Redirect("/Error403");
+            }
             Categories = response2.Content.ReadFromJsonAsync<List<Share.Models.Category>>().Result;
 
         }
@@ -80,7 +92,7 @@ namespace Client.Pages.Admin.Product
             if (!response1.IsSuccessStatusCode)
             {
                 // Handle error (e.g., display message to user)
-                return Page();
+                return Redirect("/Error403");
             }
             var products = await response1.Content.ReadFromJsonAsync<Share.Models.Product>();
             var addProductDetailDTO = new AddProductDetailDTO
@@ -100,7 +112,7 @@ namespace Client.Pages.Admin.Product
             if (!response2.IsSuccessStatusCode)
             {
                 // Handle error (e.g., display message to user)
-                return Page();
+                return Redirect("/Error403");
             }
 
             // Handle file upload
@@ -128,7 +140,7 @@ namespace Client.Pages.Admin.Product
                 if (!imageResponse.IsSuccessStatusCode)
                 {
                     // Handle error (e.g., display message to user)
-                    return Page();
+                    return Redirect("/Error403");
                 }
             }
 

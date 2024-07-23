@@ -25,7 +25,7 @@ namespace Client.Pages.Admin.Category
         //    var response = _request.GetAsync("https://localhost:5000/api/Category").Result;
         //    Categories = response.Content.ReadFromJsonAsync<List<Share.Models.Category>>().Result;
         //}
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var response = await _request.GetAsync("https://localhost:5000/api/Category");
             if (response.IsSuccessStatusCode)
@@ -39,12 +39,18 @@ namespace Client.Pages.Admin.Category
                 {
                     Categories = categories;
                 }
+                return Page();
             }
+            return Redirect("/Error403");
         }
 
         public async Task<IActionResult> OnGetDelete(int id)
         {
             var response = await _request.DeleteAsync($"https://localhost:5000/api/Category/{id}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Redirect("/Error403");
+            }
 
             return RedirectToPage("/Admin/Category/Index");
         }

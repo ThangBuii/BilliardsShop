@@ -28,8 +28,7 @@ namespace Client.Pages.Admin.Category
             {
                 return RedirectToPage("/Admin/Category/Index");
             }
-            ModelState.AddModelError(string.Empty, "Unable to create category");
-            return Page();
+            return Redirect("/Error403");
         }
     }
 }
