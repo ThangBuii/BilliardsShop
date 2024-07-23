@@ -93,7 +93,7 @@ namespace Client.Pages
 
             if (!categoryResponse.IsSuccessStatusCode || !brandResponse.IsSuccessStatusCode || !productResponse.IsSuccessStatusCode)
             {
-                RedirectToPage("/_Page500");
+                RedirectToPage("/Error500");
                 return;
             }
 

@@ -19,6 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
+       
         public IActionResult Get()
         {
             try
@@ -33,6 +34,7 @@ namespace API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult GetCategoryById(int id)
         {
             try
@@ -47,7 +49,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Post([FromBody] AddCategoryRequestDTO request)
         {
             try
@@ -66,7 +68,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Delete(int id)
         {
             try
@@ -85,7 +87,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Put([FromBody] EditCategoryRequestDTO request)
         {
             try

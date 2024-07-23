@@ -39,7 +39,7 @@ namespace Client.Pages
 
             if (!productResponse.IsSuccessStatusCode)
             {
-                RedirectToPage("/_Page500");
+                RedirectToPage("/Error500");
                 return;
             }
 

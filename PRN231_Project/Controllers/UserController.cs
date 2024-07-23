@@ -24,7 +24,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Get()
         {
             var user = _userService.GetAllUsers();
@@ -70,7 +70,7 @@ namespace API.Controllers
             new Claim("UserId", user.Id.ToString())
         };
 
-            var role = user.Role == 1 ? "Admin" : (user.Role == 2 ? "User" : "Guest");
+            var role = user.Role == 1 ? "Admin" : (user.Role == 2 ? "Staff" : "User");
             
             claims.Add(new Claim(ClaimTypes.Role, role));
 
