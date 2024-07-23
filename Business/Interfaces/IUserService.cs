@@ -17,5 +17,6 @@ namespace Business.Interfaces
         User GetUserById(int id);
 
         public User RegisterUser(RegisterRequestDTO request);
+        bool ChangePassword(ChangePasswordRequestDTO request);
     }
 }

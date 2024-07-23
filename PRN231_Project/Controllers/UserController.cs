@@ -65,7 +65,19 @@ namespace API.Controllers
                 return Conflict();
             }
         }
-        
+
+        [HttpPost("ChangePassword")]
+        public IActionResult ChangePassword(ChangePasswordRequestDTO request)
+        {
+            var result = _userService.ChangePassword(request);
+            if (!result)
+            {
+                return BadRequest("Password change failed.");
+            }
+            return Ok("Password changed successfully.");
+        }
+
+
 
         private string GenerateJwtToken(User user)
         {

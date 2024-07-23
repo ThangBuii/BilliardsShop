@@ -8,6 +8,7 @@ using Share.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
 
+
 namespace PRN231_Project
 {
     public class Program
@@ -79,6 +80,9 @@ namespace PRN231_Project
 
             // Add services to the container.
             builder.Services.AddControllers();
+
+           
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -102,6 +106,8 @@ namespace PRN231_Project
             app.MapControllers();
 
             app.Run();
+
+
         }
     }
 }
