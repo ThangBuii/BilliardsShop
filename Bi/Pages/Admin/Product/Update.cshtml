@@ -54,7 +54,7 @@
                                     </li>
                                 }
                             </ul>
-                            <input type="hidden" id="category" name="Product.Category" value="@Model.Products.CategoryName">
+                            <input type="hidden" id="category" name="category">
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                                     </li>
                                 }
                             </ul>
-                            <input type="hidden" id="brand" name="Product.BrandId" value="@Model.Products.BrandName">
+                            <input type="hidden" id="brand" name="brand">
                         </div>
                     </div>
                 </div>
@@ -140,6 +140,7 @@
                         <input type="file" class="form-control" id="productImage1" name="ProductImage1" accept="image/*">
                     </div>
                 </div>
+
                 <div class="mb-3 row">
                     <div class="col-sm-10 offset-sm-2">
                         <button type="submit" class="btn btn-primary">Update</button>
@@ -150,16 +151,17 @@
         </form>
     </div>
 
-    <script>
-        function selectCategory(id, name) {
-            document.getElementById('categoryDropdown').innerText = name;
-            document.getElementById('category').value = id;
-        }
-
-        function selectBrand(id, name) {
-            document.getElementById('brandDropdown').innerText = name;
-            document.getElementById('brand').value = id;
-        }
-    </script>
+    
 </body>
 </html>
+<script>
+    function selectCategory(id, name) {
+        document.getElementById('categoryDropdown').innerText = name;
+        document.getElementById('category').value = id;
+    }
+
+    function selectBrand(id, name) {
+        document.getElementById('brandDropdown').innerText = name;
+        document.getElementById('brand').value = id;
+    }
+</script>
