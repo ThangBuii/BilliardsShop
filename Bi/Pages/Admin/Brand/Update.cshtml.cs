@@ -31,7 +31,7 @@ namespace Client.Pages.Admin.Brand
                 }
                 return Page();
             }
-            return NotFound();
+            return Redirect("/Error403");
         }
 
         public async Task<IActionResult> OnPost()
@@ -41,8 +41,7 @@ namespace Client.Pages.Admin.Brand
             {
                 return RedirectToPage("/Admin/Brand/Index");
             }
-            ModelState.AddModelError(string.Empty, "Unable to update brand.");
-            return Page();
+            return Redirect("/Error403");
         }
     }
 }

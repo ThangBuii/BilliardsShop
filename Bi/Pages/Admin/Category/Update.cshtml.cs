@@ -31,7 +31,7 @@ namespace Client.Pages.Admin.Category
                 }
                 return Page();
             }
-            return NotFound();
+            return Redirect("/Error403");
         }
 
         public async Task<IActionResult> OnPost()
@@ -41,8 +41,7 @@ namespace Client.Pages.Admin.Category
             {
                 return RedirectToPage("/Admin/Category/Index");
             }
-            ModelState.AddModelError(string.Empty, "Unable to update categories.");
-            return Page();
+            return Redirect("/Error403");
         }
     }
 }
