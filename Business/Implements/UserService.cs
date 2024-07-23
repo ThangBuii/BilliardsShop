@@ -48,5 +48,10 @@ namespace Business.Implements
             var newUser = _userRepo.AddUser(user);
             return newUser;
         }
+
+        public User GetUserById(int id)
+        {
+            return _userRepo.GetUserById(id);
+        }
     }
 }
